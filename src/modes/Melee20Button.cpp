@@ -200,6 +200,12 @@ void Melee20Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             // 67.0362 - 3125 7375 = 25 59
             outputs.leftStickX = 128 + (directions.x * 25);
             outputs.leftStickY = 128 + (directions.y * 59);
+            // slight angled ftilts
+            if (inputs.a) {
+                // 9500 2875 = 76 23
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 23);
+            }
             // 62.62896 - 3625 7000 (62.62) = 29 56
             if (inputs.c_down) {
                 outputs.leftStickX = 128 + (directions.x * 29);
@@ -247,6 +253,13 @@ void Melee20Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
                     outputs.leftStickY = 128 + (directions.y * 57);
                 }
             }
+        }
+
+        // Slight angled fsmash
+        if (directions.cx != 0) {
+            // 9500 2875 = 76 23
+            outputs.rightStickX = 128 + (directions.cx * 76);
+            outputs.rightStickY = 128 + (directions.y * 23);
         }
     }
 
