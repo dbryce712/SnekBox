@@ -92,9 +92,9 @@ void Melee20Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.leftStickY = 128 + (directions.y * 43);
         }
         if (directions.diagonal && shield_button_pressed) {
-            // MX + L, R, LS, and MS + q1/2/3/4 = 6375 3750 = 51 30
-            outputs.leftStickX = 128 + (directions.x * 51);
-            outputs.leftStickY = 128 + (directions.y * 30);
+            // 9500 2875 = 76 23
+            outputs.leftStickX = 128 + (directions.x * 76);
+            outputs.leftStickY = 128 + (directions.y * 23);
         }
 
         /* Up B angles */
@@ -184,9 +184,15 @@ void Melee20Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.leftStickY = 128 + (directions.y * 70);
             // MY + L, R, LS, and MS + q3/4 = 5000 8500 = 40 68
             // Parasol dash
-            if (directions.y == -1 || inputs.x || inputs.y) {
+            if (directions.y == 1 && (inputs.x || inputs.y)) {
                 outputs.leftStickX = 128 + (directions.x * 40);
                 outputs.leftStickY = 128 + (directions.y * 68);
+            }
+            // steepest wavedash
+            if (directions.y == -1) {
+                // 2875 9500 = 23 76
+                outputs.leftStickX = 128 + (directions.x * 23);
+                outputs.leftStickY = 128 + (directions.y * 76);
             }
         }
 
@@ -266,9 +272,9 @@ void Melee20Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
     if (directions.cx != 0 && directions.cy != 0) {
-        // 5250 8500 = 42 68
-        outputs.rightStickX = 128 + (directions.cx * 42);
-        outputs.rightStickY = 128 + (directions.cy * 68);
+        // 2875 9500 = 23 76
+        outputs.rightStickX = 128 + (directions.cx * 23);
+        outputs.rightStickY = 128 + (directions.cy * 76);
     }
 
     // Horizontal SOCD overrides X-axis modifiers (for ledgedash maximum jump

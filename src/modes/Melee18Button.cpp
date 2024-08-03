@@ -263,8 +263,8 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.triggerRAnalog = 94;
 
             if (directions.diagonal) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 30);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 23);
             }
         }
         // L + Mod Y = lightshield
@@ -273,9 +273,18 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.triggerRAnalog = 43;
 
             // Parasol dash
-            if (directions.diagonal || inputs.x || inputs.y) {
-                outputs.leftStickX = 128 + (directions.x * 40);
-                outputs.leftStickY = 128 + (directions.y * 68);
+            if (directions.diagonal) {
+
+                if (directions.y == 1 && (inputs.x || inputs.y)) {
+                    outputs.leftStickX = 128 + (directions.x * 40);
+                    outputs.leftStickY = 128 + (directions.y * 68);
+                }
+
+                if (directions.y == -1) {
+                    // 2875 9500 = 23 76
+                    outputs.leftStickX = 128 + (directions.x * 23);
+                    outputs.leftStickY = 128 + (directions.y * 76);
+                }
             }
         }
     }
@@ -291,12 +300,12 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 43);
             if (inputs.mod_x) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 30);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 23);
             }
             if (inputs.mod_y) {
-                outputs.leftStickX = 128 + (directions.x * 40);
-                outputs.leftStickY = 128 + (directions.y * 68);
+                outputs.leftStickX = 128 + (directions.x * 23);
+                outputs.leftStickY = 128 + (directions.y * 76);
             }
         }
     }
@@ -304,9 +313,9 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
     if (directions.cx != 0 && directions.cy != 0) {
-        // 5250 8500 = 42 68
-        outputs.rightStickX = 128 + (directions.cx * 42);
-        outputs.rightStickY = 128 + (directions.cy * 68);
+        // 2875 9500 = 23 76
+        outputs.rightStickX = 128 + (directions.cx * 23);
+        outputs.rightStickY = 128 + (directions.cy * 76);
     }
 
     // Horizontal SOCD overrides X-axis modifiers (for ledgedash maximum jump
