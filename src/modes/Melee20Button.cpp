@@ -90,6 +90,11 @@ void Melee20Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
         // MX + Vertical (even if shield is held) = 5375 = 43
         if (directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 43);
+
+            // shine on platform without falling through
+            if (inputs.b) {
+                outputs.leftStickY = 128 + (directions.y * 45);
+            }
         }
         if (directions.diagonal && shield_button_pressed) {
             // 9500 2875 = 76 23

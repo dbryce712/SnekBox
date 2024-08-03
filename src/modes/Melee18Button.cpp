@@ -85,6 +85,11 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
         }
         if (directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 43);
+
+            // shine on platform without falling through
+            if (inputs.b) {
+                outputs.leftStickY = 128 + (directions.y * 45);
+            }
         }
 
         // Angled fsmash
