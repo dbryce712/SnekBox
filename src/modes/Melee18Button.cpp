@@ -32,7 +32,7 @@ void Melee18Button::UpdateDigitalOutputs(InputState &inputs, OutputState &output
     if (inputs.nunchuk_connected) {
         // Lightshield with C button.
         if (inputs.nunchuk_c) {
-            outputs.triggerLAnalog = 49;
+            outputs.triggerLAnalog = 43;
         }
         outputs.triggerLDigital = inputs.nunchuk_z;
     } else {
@@ -159,6 +159,11 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             if (shield_button_pressed) {
                 outputs.leftStickY = 128 + (directions.y * 55);
             }
+
+            // Pikachu/Pichu double up special
+            if (inputs.up && inputs.up2 && inputs.b) {
+                outputs.leftStickY = 128 - (directions.y * 40);
+            }
         }
 
         // Turnaround neutral B nerf
@@ -254,7 +259,8 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.triggerLDigital = false;
             outputs.triggerRAnalog = 43;
 
-            if (directions.diagonal) {
+            // Parasol dash
+            if (directions.diagonal || inputs.x || inputs.y) {
                 outputs.leftStickX = 128 + (directions.x * 40);
                 outputs.leftStickY = 128 + (directions.y * 68);
             }
