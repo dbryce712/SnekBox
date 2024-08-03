@@ -167,9 +167,9 @@ void Melee18Button::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
         }
 
         // Turnaround neutral B nerf
-        if (inputs.b) {
+        /* if (inputs.b) {
             outputs.leftStickX = 128 + (directions.x * 80);
-        }
+        } */
 
         /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
