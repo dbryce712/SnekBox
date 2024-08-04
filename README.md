@@ -24,6 +24,7 @@ Changes:
   - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
     - *2IP SOCD highly recommended*
   - Changed Mod X and Mod Y wavedash angles to shallowest and steepest, respectively
+    - *Not necessarily a buff, see [here](https://old.reddit.com/r/SSBM/comments/uzu6w1/arte_the_b0xx_wd_nerf_is_a_fox_buff/)*
   - Changed slideoff DI c-stick diagonal angles to the most optimal ones
   - Added slight-angled forward tilt/smash angles (Mod Y + Up/Down + A/C-stick)
   - Removed turnaround neutral B nerf
