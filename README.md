@@ -22,6 +22,7 @@ Changes:
   - Neutral SOCD
   - Pikachu double up-B angle (Up + Up2 + Mod Y)
   - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
+    - *2IP SOCD highly recommended*
   - Changed Mod X and Mod Y wavedash angles to shallowest and steepest, respectively
   - Changed slideoff DI c-stick diagonal angles to the most optimal ones
   - Added slight-angled forward tilt/smash angles (Mod Y + Up/Down + A/C-stick)
