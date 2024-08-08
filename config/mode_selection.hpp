@@ -5,6 +5,7 @@
 #include "modes/DefaultKeyboardMode.hpp"
 #include "modes/FgcMode.hpp"
 #include "modes/Melee20Button.hpp"
+#include "modes/Melee20ButtonGoated.hpp"
 #include "modes/ProjectM.hpp"
 #include "modes/RivalsOfAether.hpp"
 #include "modes/Ultimate.hpp"
@@ -46,6 +47,11 @@ void select_mode(CommunicationBackend *backend) {
                     socd::SOCD_2IP,
                     { .true_z_press = false, .ledgedash_max_jump_traj = false }
                 )
+            );
+        } else if (inputs.up2) {
+            set_mode(
+                backend,
+                new Melee20ButtonGoated(socd::SOCD_2IP, { .crouch_walk_os = false })
             );
         } else if (inputs.down) {
             set_mode(backend, new Ultimate(socd::SOCD_2IP));
