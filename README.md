@@ -12,14 +12,22 @@ Changes:
   - ~~Left/Right + Down always inputs down special~~ removed as it constituted a macro
 - Added an input mode for ProjectM with true Z press enabled
   - Mod X + Start + Z to activate
-- Added HDR mode
+- Added HDR mode (now the default when X is held while plugging in)
   - Swapped L/ZL and R/ZR to match L + R + A + Start with Melee/P+ (this change also applies to Ultimate mode)
   - Set midshield button to D-Pad Up for footstools
   - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
-- Melee mode buffs
+- Melee mode buffs **(note: for stock HayBox Melee mode, use v1.1.5)**
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
   - Neutral SOCD
+  - Pikachu double up-B angle (Up + Up2 + Mod Y)
+  - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
+    - *2IP SOCD highly recommended*
+  - Changed Mod X and Mod Y wavedash angles to shallowest and steepest, respectively
+    - *Not necessarily a buff, see [here](https://old.reddit.com/r/SSBM/comments/uzu6w1/arte_the_b0xx_wd_nerf_is_a_fox_buff/)*
+  - Changed slideoff DI c-stick diagonal angles to the most optimal ones
+  - Added slight-angled forward tilt/smash angles (Mod Y + Up/Down + A/C-stick)
+  - Removed turnaround neutral B nerf
 - FGC mode now uses SOCD_2IP
 
 ## Original ReadMe below:
