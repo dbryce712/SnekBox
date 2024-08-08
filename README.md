@@ -9,7 +9,7 @@ Changes:
   - SOCD_2IP (second input priority w/ reactivation)
   - true Z press = false (analog shield + A macro)
   - ledgedash_max_jump_traj = false
-  - Left/Right + Down always inputs down special
+  - ~~Left/Right + Down always inputs down special~~ removed as it constituted a macro
 - Added an input mode for ProjectM with true Z press enabled
   - Mod X + Start + Z to activate
 - Added HDR mode
