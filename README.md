@@ -13,7 +13,7 @@ Changes:
 - Added an input mode for ProjectM with true Z press enabled
   - Mod X + Start + Z to activate
 - Added HDR mode (now the default when X is held while plugging in)
-  - Swapped L/ZL and R/ZR to match L + R + A + Start with Melee/P+ (this change also applies to Ultimate mode)
+  - ~~Swapped L/ZL and R/ZR to match L + R + A + Start with Melee/P+ (this change also applies to Ultimate mode)~~
   - Set midshield button to D-Pad Up for footstools
   - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
 - Melee mode buffs **(note: for stock HayBox Melee mode, use v1.1.5)**
