@@ -9,11 +9,13 @@ Changes:
   - SOCD_2IP (second input priority w/ reactivation)
   - true Z press = false (analog shield + A macro)
   - ledgedash_max_jump_traj = false
+  - Changed Mod X C-stick angling to enable angled C-stick forward tilts
 - Added an input mode for ProjectM with true Z press enabled
   - Mod X + Start + Z to activate
 - Added HDR mode (now the default when X is held while plugging in)
   - Set midshield button to D-Pad Up for footstools
   - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
+  - Changed Mod X C-stick angling to enable angled C-stick forward tilts
 - Buffed Melee mode; Mod X + Start + Up2 to activate
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
