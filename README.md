@@ -9,11 +9,13 @@ Changes:
   - SOCD_2IP (second input priority w/ reactivation)
   - true Z press = false (analog shield + A macro)
   - ledgedash_max_jump_traj = false
+  - Changed Mod X C-stick angling to enable angled C-stick forward tilts
 - Added an input mode for ProjectM with true Z press enabled
   - Mod X + Start + Z to activate
 - Added HDR mode (now the default when X is held while plugging in)
   - Set midshield button to D-Pad Up for footstools
   - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
+  - Changed Mod X C-stick angling to enable angled C-stick forward tilts
 - Buffed Melee mode; Mod X + Start + Up2 to activate
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
@@ -23,7 +25,7 @@ Changes:
     - *2IP SOCD highly recommended*
   - Changed Mod X and Mod Y wavedash angles to shallowest and steepest, respectively
     - *Not necessarily a buff, see [here](https://old.reddit.com/r/SSBM/comments/uzu6w1/arte_the_b0xx_wd_nerf_is_a_fox_buff/)*
-  - Changed slideoff DI c-stick diagonal angles to the most optimal ones
+  - Changed slideoff DI C-stick diagonal angles to the most optimal ones
   - Added slight-angled forward tilt/smash angles (Mod Y + Up/Down + A/C-stick)
   - Removed turnaround neutral B nerf
 - FGC mode now uses SOCD_2IP
