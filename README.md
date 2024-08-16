@@ -19,10 +19,9 @@ Changes:
 - Buffed Melee mode; Mod X + Start + Up2 to activate
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
-  - Neutral SOCD
+  - 2IP SOCD
   - Pikachu double up-B angle (Up + Up2 + Mod Y)
   - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
-    - *2IP SOCD highly recommended*
   - Changed Mod X and Mod Y wavedash angles to shallowest and steepest, respectively
     - *Not necessarily a buff, see [here](https://old.reddit.com/r/SSBM/comments/uzu6w1/arte_the_b0xx_wd_nerf_is_a_fox_buff/)*
   - Changed slideoff DI C-stick diagonal angles to the most optimal ones
