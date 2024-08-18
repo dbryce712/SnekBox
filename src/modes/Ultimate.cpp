@@ -176,6 +176,7 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                     outputs.leftStickY = 128 + (directions.y * 68);
                 }
             }
+        }
 
             /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
