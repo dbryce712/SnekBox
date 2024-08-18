@@ -67,13 +67,6 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
     bool shield_button_pressed = inputs.l || inputs.r;
 
     if (directions.diagonal) {
-        
-        /* // down + horizontal + B outputs down special
-        if (inputs.b) {
-            outputs.leftStickX = 128 + (directions.x * 28);
-            outputs.leftStickY = 128 + (directions.y * 85);
-        } */
-
         if (directions.y == 1) {
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
@@ -175,10 +168,12 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
-    if (directions.cx != 0 && directions.cy != 0) {
-        // 5250 8500 = 42 68
-        outputs.rightStickX = 128 + (directions.cx * 42);
-        outputs.rightStickY = 128 + (directions.cy * 68);
+    // We don't apply this for c-up + c-left/c-right in case we want to implement
+    // C-stick nair somehow.
+    if (directions.cx != 0 && directions.cy == -1) {
+        // 3000 9875 = 30 78
+        outputs.rightStickX = 128 + (directions.cx * 35);
+        outputs.rightStickY = 128 + (directions.cy * 98);
     }
 
     if (inputs.l) {

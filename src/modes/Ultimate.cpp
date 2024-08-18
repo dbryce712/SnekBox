@@ -65,51 +65,46 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         outputs
     );
 
-    bool shield_button_pressed = inputs.l || inputs.r;
+    bool shield_button_pressed = inputs.l || inputs.r || inputs.lightshield;
+
+    if (directions.diagonal) {
+        if (directions.y == 1) {
+            outputs.leftStickX = 128 + (directions.x * 83);
+            outputs.leftStickY = 128 + (directions.y * 93);
+        }
+    }
 
     if (inputs.mod_x) {
-        // MX + Horizontal = 6625 = 53
         if (directions.horizontal) {
+            // MX + Horizontal = 6625 = 53
             outputs.leftStickX = 128 + (directions.x * 53);
             // Horizontal Shield tilt = 51
             if (shield_button_pressed) {
                 outputs.leftStickX = 128 + (directions.x * 51);
             }
-            // Horizontal Tilts = 36
-            if (inputs.a) {
-                outputs.leftStickX = 128 + (directions.x * 36);
-            }
         }
-        // MX + Vertical = 44
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 44);
+            outputs.leftStickY = 128 + (directions.y * 60);
             // Vertical Shield Tilt = 51
             if (shield_button_pressed) {
                 outputs.leftStickY = 128 + (directions.y * 51);
             }
         }
+
+        if (directions.cx != 0) {
+            outputs.rightStickX = 128 + (directions.cx * 65);
+            outputs.rightStickY = 128 + (directions.y * 44);
+        }
+
         if (directions.diagonal) {
-            // MX + q1/2/3/4 = 53 35
-            outputs.leftStickX = 128 + (directions.x * 53);
-            outputs.leftStickY = 128 + (directions.y * 35);
+            outputs.leftStickX = 128 + (directions.x * 70);
+            outputs.leftStickY = 128 + (directions.y * 34);
             if (shield_button_pressed) {
                 // MX + L, R, LS, and MS + q1/2/3/4 = 6375 3750 = 51 30
                 outputs.leftStickX = 128 + (directions.x * 51);
                 outputs.leftStickY = 128 + (directions.y * 30);
             }
-        }
 
-        // Angled fsmash/ftilt with C-Stick + MX
-        if (directions.cx != 0) {
-            outputs.rightStickX = 128 + (directions.cx * 127);
-            outputs.rightStickY = 128 + (directions.y * 59);
-        }
-
-        /* Up B angles */
-        if (directions.diagonal && !shield_button_pressed) {
-            // (33.44) = 53 35
-            outputs.leftStickX = 128 + (directions.x * 53);
-            outputs.leftStickY = 128 + (directions.y * 35);
             // (39.05) = 53 43
             if (inputs.c_down) {
                 outputs.leftStickX = 128 + (directions.x * 53);
@@ -157,36 +152,20 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                     outputs.leftStickY = 128 + (directions.y * 35);
                 }
             }
-
-            // Angled Ftilts
-            if (inputs.a) {
-                outputs.leftStickX = 128 + (directions.x * 36);
-                outputs.leftStickY = 128 + (directions.y * 26);
-            }
         }
     }
 
     if (inputs.mod_y) {
-        // MY + Horizontal (even if shield is held) = 41
         if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 41);
-            // MY Horizontal Tilts
-            if (inputs.a) {
-                outputs.leftStickX = 128 + (directions.x * 36);
-            }
-        }
-        // MY + Vertical (even if shield is held) = 53
-        if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 53);
-            // MY Vertical Tilts
-            if (inputs.a) {
-                outputs.leftStickY = 128 + (directions.y * 36);
-            }
-        }
-        if (directions.diagonal) {
-            // MY + q1/2/3/4 = 35 59
             outputs.leftStickX = 128 + (directions.x * 35);
-            outputs.leftStickY = 128 + (directions.y * 53);
+        }
+        if (directions.vertical) {
+            outputs.leftStickY = 128 + (directions.y * 70);
+        }
+
+        if (directions.diagonal) {
+            outputs.leftStickX = 128 + (directions.x * 28);
+            outputs.leftStickY = 128 + (directions.y * 58);
             if (shield_button_pressed) {
                 // MY + L, R, LS, and MS + q1/2 = 38 70
                 outputs.leftStickX = 128 + (directions.x * 38);
@@ -197,9 +176,8 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                     outputs.leftStickY = 128 + (directions.y * 68);
                 }
             }
-        }
 
-        /* Up B angles */
+            /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
             // (56.56) = 35 53
             outputs.leftStickX = 128 + (directions.x * 35);
