@@ -30,8 +30,8 @@ Changes:
 - FGC mode now uses 2IP SOCD
 - Ultimate mode improvements
   - Mod X fixes
-    - MX + A now properly outputs DAFT
-    - Facing left and inputting MX + C-Stick right now properly results in a rightward facing attack
+    - MX + Down + A now properly outputs DAFT
+    - Facing left and inputting MX + C-Stick Right now properly results in a rightward facing attack
   - Decreased Mod Y magnitude to match PM mode
   - Classified inputs.lightshield as a shield button
 
