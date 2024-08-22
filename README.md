@@ -6,8 +6,8 @@ Changes:
 - Swapped A and C-stick down buttons
 - Made ProjectM mode default
   - Added snekdash angles (use mod X + L)
-  - SOCD_2IP (second input priority w/ reactivation)
-  - true Z press = false (analog shield + A macro)
+  - 2IP SOCD
+  - true Z press = false
   - ledgedash_max_jump_traj = false
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
 - Added an input mode for ProjectM with true Z press enabled
@@ -27,7 +27,13 @@ Changes:
   - Changed slideoff DI C-stick diagonal angles to the most optimal ones
   - Added slight-angled forward tilt/smash angles (Mod Y + Up/Down + A/C-stick)
   - Removed turnaround neutral B nerf
-- FGC mode now uses SOCD_2IP
+- FGC mode now uses 2IP SOCD
+- Ultimate mode improvements
+  - Mod X fixes
+    - MX + Down + A now properly outputs DAFT
+    - Facing left and inputting MX + C-Stick Right now properly results in a rightward facing attack
+  - Decreased Mod Y magnitude to match PM mode
+  - Classified inputs.lightshield as a shield button
 
 ## Original ReadMe below:
 
