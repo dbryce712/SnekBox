@@ -177,7 +177,7 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
     // We don't apply this for c-up + c-left/c-right in case we want to implement
     // C-stick nair somehow.
     if (directions.cx != 0 && directions.cy == -1) {
-        // 3000 9875 = 30 78
+        // 3000 9875
         outputs.rightStickX = 128 + (directions.cx * 35);
         outputs.rightStickY = 128 + (directions.cy * 98);
     }
