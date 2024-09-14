@@ -1,4 +1,4 @@
-/* Ultimate profile by Taker */
+/* Ultimate profile by white sheep (original by Taker) */
 #include "modes/Ultimate.hpp"
 
 #define ANALOG_STICK_MIN 28
@@ -65,14 +65,7 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         outputs
     );
 
-    bool shield_button_pressed = inputs.l || inputs.r || inputs.lightshield;
-
-    if (directions.diagonal) {
-        if (directions.y == 1) {
-            outputs.leftStickX = 128 + (directions.x * 83);
-            outputs.leftStickY = 128 + (directions.y * 93);
-        }
-    }
+    bool shield_button_pressed = inputs.l || inputs.r;
 
     if (inputs.mod_x) {
         if (directions.horizontal) {
@@ -101,14 +94,21 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         }
 
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 70);
-            outputs.leftStickY = 128 + (directions.y * 34);
+            // MX + q1/2/3/4 = 53 35
+            outputs.leftStickX = 128 + (directions.x * 53);
+            outputs.leftStickY = 128 + (directions.y * 35);
+            if (inputs.a) {
+                // DAFTs
+                outputs.leftStickX = 128 + (directions.x * 70);
+                outputs.leftStickY = 128 + (directions.y * 34);
+            }
             if (shield_button_pressed) {
                 // MX + L, R, LS, and MS + q1/2/3/4 = 6375 3750 = 51 30
                 outputs.leftStickX = 128 + (directions.x * 51);
                 outputs.leftStickY = 128 + (directions.y * 30);
             }
-
+            
+            /* Up B angles */
             // (39.05) = 53 43
             if (inputs.c_down) {
                 outputs.leftStickX = 128 + (directions.x * 53);
@@ -163,13 +163,19 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 35);
         }
+        // MY + Vertical (even if shield is held) = 53
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 70);
+            outputs.leftStickY = 128 + (directions.y * 53);
+            // MY Vertical Tilts
+            if (inputs.a) {
+                outputs.leftStickY = 128 + (directions.y * 36);
+            }
         }
 
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 28);
-            outputs.leftStickY = 128 + (directions.y * 58);
+            // MY + q1/2/3/4 = 35 53
+            outputs.leftStickX = 128 + (directions.x * 35);
+            outputs.leftStickY = 128 + (directions.y * 53);
             if (shield_button_pressed) {
                 // MY + L, R, LS, and MS + q1/2 = 38 70
                 outputs.leftStickX = 128 + (directions.x * 38);
@@ -182,7 +188,7 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
             }
         }
 
-            /* Up B angles */
+        /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
             // (56.56) = 35 53
             outputs.leftStickX = 128 + (directions.x * 35);
@@ -237,8 +243,8 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
 
             // MY Pivot Uptilt/Dtilt
             if (inputs.a) {
-                outputs.leftStickX = 128 + (directions.x * 34);
-                outputs.leftStickY = 128 + (directions.y * 38);
+                outputs.leftStickX = 128 + (directions.x * 38);
+                outputs.leftStickY = 128 + (directions.y * 69);
             }
         }
     }

@@ -31,11 +31,15 @@ Changes:
   - Removed turnaround neutral B nerf
 - FGC mode now uses 2IP SOCD
 - Ultimate mode improvements
+  - Midshield button changed to up taunt
+  - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
   - Mod X fixes
     - MX + Down + A now properly outputs DAFT
     - Facing left and inputting MX + C-Stick Right now properly results in a rightward facing attack
+    - Samus can now input Homing Missiles with Mod X + side B
+    - Mod X + Up/Down + B now outputs Up/Down special, respectively
   - Decreased Mod Y magnitude to match PM mode
-  - Classified inputs.lightshield as a shield button
+  - Mod Y Pivot Uptilt/Dtilt now functions properly
 
 ## Original ReadMe below:
 
