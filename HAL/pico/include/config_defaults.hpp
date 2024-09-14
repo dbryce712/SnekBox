@@ -26,12 +26,18 @@ const Config default_config = {
             .mode_id = MODE_PROJECT_M,
             .socd_pairs_count = 4,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP_NO_REAC },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP },
             },
-            .button_remapping_count = 0,
+            .button_remapping_count = 4,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_RF6, .activates = BTN_RF4 }, // Up instead of Y
+                ButtonRemap { .physical_button = BTN_RF7, .activates = BTN_RT2 }, // C-Down instead of lightshield
+                ButtonRemap { .physical_button = BTN_RF3, .activates = BTN_RF5 }, // Z activates R
+                ButtonRemap { .physical_button = BTN_RF5, .activates = BTN_RF3 }, // R activates Z
+            },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF3 },
         },
@@ -92,11 +98,11 @@ const Config default_config = {
     .communication_backend_configs = {
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_XINPUT,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_DINPUT,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
             .activation_binding_count = 1,
             .activation_binding = { BTN_RF3 },
         },
@@ -108,7 +114,7 @@ const Config default_config = {
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_GAMECUBE,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_N64,
@@ -170,8 +176,8 @@ const Config default_config = {
         .disable_ledgedash_socd_override = false,
     },
     .project_m_options = {
-        .true_z_press = false,
-        .disable_ledgedash_socd_override = false,
+        .true_z_press = true,
+        .disable_ledgedash_socd_override = true,
     },
 };
 

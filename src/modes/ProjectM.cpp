@@ -22,7 +22,7 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.a = inputs.rt1;
     outputs.b = inputs.rf1;
     outputs.x = inputs.rf2;
-    outputs.y = inputs.rf6;
+    /* outputs.y = inputs.rf6; */
     // True Z press vs macro lightshield + A.
     if (_options.true_z_press || inputs.lt1) {
         outputs.buttonR = inputs.rf3;
@@ -53,6 +53,11 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
         outputs.dpadLeft = true;
     if (inputs.mb2)
         outputs.dpadRight = true;
+
+    if (inputs.lt3) {
+        outputs.x = false;
+        outputs.y = inputs.rf2;
+    }
 }
 
 void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs) {
@@ -71,12 +76,18 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf7;
+    bool shield_button_pressed = inputs.lf4/*  || inputs.rf7 */;
 
     if (directions.diagonal) {
         if (directions.y == 1) {
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
+        }
+
+        // down + horizontal + B outputs down special
+        if (inputs.rf1 && directions.y == -1) {
+            outputs.leftStickX = 128 + (directions.x * 28);
+            outputs.leftStickY = 128 + (directions.y * 85);
         }
     }
 
@@ -182,6 +193,14 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         }
     }
 
+    // snekdash modifier
+    if (inputs.lt3) {
+        if (directions.diagonal) {
+            outputs.leftStickX = 128 + (directions.x * 120);
+            outputs.leftStickY = 128 + (directions.y * 84);
+        }
+    }
+
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
     // We don't apply this for c-up + c-left/c-right in case we want to implement
@@ -199,9 +218,9 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs.leftStickX = 128 + (directions.x * 100);
     }
 
-    if (inputs.rf7) {
+    /* if (inputs.rf7) {
         outputs.triggerRAnalog = 49;
-    }
+    } */
 
     // Send lightshield input if we are using Z = lightshield + A macro.
     if (inputs.rf3 && !(inputs.lt1 || _options.true_z_press)) {
