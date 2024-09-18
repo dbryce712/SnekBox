@@ -97,7 +97,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 70);
         }
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 60);
+            outputs.leftStickY = 128 + (directions.y * 61);
         }
 
         if (directions.cx != 0) {
@@ -121,8 +121,8 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                     outputs.leftStickX = 128 + (directions.x * _options.custom_airdodge.x);
                     outputs.leftStickY = 128 + (directions.y * _options.custom_airdodge.y);
                 } else {
-                    outputs.leftStickX = 128 + (directions.x * 82);
-                    outputs.leftStickY = 128 + (directions.y * 35);
+                    outputs.leftStickX = 128 + (directions.x * 96);
+                    outputs.leftStickY = 128 + (directions.y * 28);
                 }
             }
 
