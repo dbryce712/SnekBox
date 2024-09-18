@@ -84,7 +84,7 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
             outputs.leftStickX = 128 + (directions.x * 70);
         }
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 60);
+            outputs.leftStickY = 128 + (directions.y * 61);
         }
 
         if (directions.cx != 0) {
@@ -102,8 +102,8 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
             }
 
             if (inputs.r) {
-                outputs.leftStickX = 128 + (directions.x * 82);
-                outputs.leftStickY = 128 + (directions.y * 35);
+                outputs.leftStickX = 128 + (directions.x * 96);
+                outputs.leftStickY = 128 + (directions.y * 28);
             }
 
             if (inputs.c_up) {
