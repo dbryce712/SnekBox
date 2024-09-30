@@ -140,6 +140,12 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
+            // MY Pivot Uptilt/Dtilt
+            if (inputs.a) {
+                outputs.leftStickX = 128 + (directions.x * 38);
+                outputs.leftStickY = 128 + (directions.y * 69);
+            }
+
             if (inputs.b) {
                 outputs.leftStickX = 128 + (directions.x * 28);
                 outputs.leftStickY = 128 + (directions.y * 85);
