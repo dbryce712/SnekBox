@@ -4,10 +4,9 @@ Forked version of HayBox focused on P+ Lucas
 Changes:
 - Added Up2 functionality (BubbleBox, GRAM, etc.)
 - Swapped A and C-stick down buttons
-- Made ProjectM mode default
+- Made ProjectM mode default (true Z press = false)
   - Added snekdash angles (use mod X + L)
   - 2IP SOCD
-  - true Z press = false
   - ledgedash_max_jump_traj = false
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
   - Left/Right + Down always inputs down special
@@ -21,16 +20,17 @@ Changes:
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
   - Left/Right + Down always inputs down special
   - Mod X crouching (useful on platforms)
+- Rivals of Aether mode overhauled for Rivals of Aether II
 - Buffed Melee mode; Mod X + Start + Up2 to activate
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
   - 2IP SOCD
   - Pikachu double up-B angle (Up + Up2 + Mod Y)
   - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
-  - Changed Mod X and Mod Y wavedash angles to shallowest and steepest, respectively
-    - *Not necessarily a buff, see [here](https://old.reddit.com/r/SSBM/comments/uzu6w1/arte_the_b0xx_wd_nerf_is_a_fox_buff/)*
+  - Changed Mod X and Mod Y wavedash angles to longest and shortest, respectively
   - Changed slideoff DI C-stick diagonal angles to the most optimal ones
-  - Added slight-angled forward tilt/smash angles (Mod Y + Up/Down + A/C-stick)
+  - Added buffered turnaround vertical tilts (Mod Y)
+  - Added slight-angled forward tilt/smash angles (Mod X + Mod Y)
   - Removed turnaround neutral B nerf
 - FGC mode now uses 2IP SOCD
 - Ultimate mode improvements
