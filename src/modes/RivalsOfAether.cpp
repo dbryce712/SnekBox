@@ -1,8 +1,8 @@
 #include "modes/RivalsOfAether.hpp"
 
-#define ANALOG_STICK_MIN 28
+#define ANALOG_STICK_MIN 1
 #define ANALOG_STICK_NEUTRAL 128
-#define ANALOG_STICK_MAX 228
+#define ANALOG_STICK_MAX 255
 
 RivalsOfAether::RivalsOfAether(socd::SocdType socd_type) {
     _socd_pair_count = 5;
@@ -71,7 +71,7 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
 
     if (inputs.mod_x) {
         if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 66);
+            outputs.leftStickX = 128 + (directions.x * 76);
             // MX Horizontal Tilts
             if (inputs.a) {
                 outputs.leftStickX = 128 + (directions.x * 44);
@@ -79,38 +79,43 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
         }
 
         if(directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 44);
-            // MX Vertical Tilts
-            if (inputs.a) {
-                outputs.leftStickY = 128 + (directions.y * 67);
-            }
+            outputs.leftStickY = 128 + (directions.y * 79);
         }
 
         /* Extra DI, Air Dodge, and Up B angles */
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 59);
-            outputs.leftStickY = 128 + (directions.y * 23);
+            outputs.leftStickX = 128 + (directions.x * 70);
+            outputs.leftStickY = 128 + (directions.y * 34);
 
-            // Angles just for DI and Up B
-            if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 49);
-                outputs.leftStickY = 128 + (directions.y * 24);
+            // Angled F-tilts
+            if (inputs.a) {
+                outputs.leftStickX = 128 + (directions.x * 81);
+                outputs.leftStickY = 128 + (directions.y * 46);
             }
 
-            // Angles just for DI
-            if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 52);
+            if (inputs.b) {
+                outputs.leftStickX = 128 + (directions.x * 85);
                 outputs.leftStickY = 128 + (directions.y * 31);
+            }
+
+            if (inputs.c_down) {
+                outputs.leftStickX = 128 + (directions.x * 107);
+                outputs.leftStickY = 128 + (directions.y * 47);
+            }
+
+            if (inputs.c_left) {
+                outputs.leftStickX = 128 + (directions.x * 109);
+                outputs.leftStickY = 128 + (directions.y * 65);
             }
       
             if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 49);
-                outputs.leftStickY = 128 + (directions.y * 35);
+                outputs.leftStickX = 128 + (directions.x * 100);
+                outputs.leftStickY = 128 + (directions.y * 72);
             }
      
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 43);
+                outputs.leftStickX = 128 + (directions.x * 94);
+                outputs.leftStickY = 128 + (directions.y * 79);
             }
         }
     }
@@ -121,34 +126,49 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
         }
 
         if(directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 67);
+            outputs.leftStickY = 128 + (directions.y * 91);
+
+            if (inputs.a) {
+                outputs.leftStickY = 128 + (directions.y * 70);
+            }
         }
 
-        /* Extra DI, Air Dodge, and Up B angles */
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 44);
-            outputs.leftStickY = 128 + (directions.y * 113);
+            outputs.leftStickX = 128 + (directions.x * 41);
+            outputs.leftStickY = 128 + (directions.y * 70);
+
+            // Vertical tilts
+            if (inputs.a) {
+                outputs.leftStickX = 128 + (directions.x * 44);
+                outputs.leftStickY = 128 + (directions.y * 76);
+            }
+
+            /* Extra DI, Air Dodge, and Up B angles */
+
+            if (inputs.b) {
+                outputs.leftStickX = 128 + (directions.x * 28);
+                outputs.leftStickY = 128 + (directions.y * 85);
+            }
 
             // Angles just for DI and Up B
             if (inputs.c_down) {
                 outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 90);
+                outputs.leftStickY = 128 + (directions.y * 106);
             }
 
-            // Angles just for DI
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 74);
+                outputs.leftStickX = 128 + (directions.x * 52);
+                outputs.leftStickY = 128 + (directions.y * 109);
             }
       
             if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 45);
-                outputs.leftStickY = 128 + (directions.y * 63);
+                outputs.leftStickX = 128 + (directions.x * 72);
+                outputs.leftStickY = 128 + (directions.y * 100);
             }
      
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 47);
-                outputs.leftStickY = 128 + (directions.y * 57);
+                outputs.leftStickX = 128 + (directions.x * 81);
+                outputs.leftStickY = 128 + (directions.y * 94);
             }
         }
     }
