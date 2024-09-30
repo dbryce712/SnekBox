@@ -201,11 +201,6 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
             }
         }
 
-        // Turnaround neutral B nerf
-        /* if (inputs.b) {
-            outputs.leftStickX = 128 + (directions.x * 80);
-        } */
-
         /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
             // 67.0362 - 3125 7375 = 25 59
@@ -213,9 +208,16 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
             outputs.leftStickY = 128 + (directions.y * 59);
             // slight angled ftilts
             if (inputs.a) {
-                // 9500 2875 = 76 23
-                outputs.leftStickX = 128 + (directions.x * 76);
-                outputs.leftStickY = 128 + (directions.y * 23);
+                // buffered turnaround vertical tilts
+                if (directions.y == -1) {
+                    outputs.leftStickX = 128 + (directions.x * 23);
+                    outputs.leftStickY = 128 + (directions.y * 53);
+                }
+
+                if (directions.y == 1) {
+                    outputs.leftStickX = 128 + (directions.x * 23);
+                    outputs.leftStickY = 128 + (directions.y * 52);
+                }
             }
             // 62.62896 - 3625 7000 (62.62) = 29 56
             if (inputs.c_down) {
@@ -306,6 +308,13 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
     if ((inputs.mod_x && inputs.mod_y) || inputs.nunchuk_c) {
         outputs.rightStickX = 128;
         outputs.rightStickY = 128;
+
+        // slight angled ftilts
+        if (inputs.a && directions.diagonal) {
+            // 9500 2875 = 76 23
+            outputs.leftStickX = 128 + (directions.x * 76);
+            outputs.leftStickY = 128 + (directions.y * 23);
+        }
     }
 
     // Nunchuk overrides left stick.
