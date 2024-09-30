@@ -66,9 +66,6 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
 
     bool shield_button_pressed = inputs.l || inputs.r;
 
-
-    // 48 total DI angles, 24 total Up b angles, 16 total airdodge angles
-
     if (inputs.mod_x) {
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 76);
@@ -82,7 +79,6 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
             outputs.leftStickY = 128 + (directions.y * 79);
         }
 
-        /* Extra DI, Air Dodge, and Up B angles */
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 70);
             outputs.leftStickY = 128 + (directions.y * 34);
@@ -92,6 +88,8 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
                 outputs.leftStickX = 128 + (directions.x * 81);
                 outputs.leftStickY = 128 + (directions.y * 46);
             }
+
+            /* Extra DI, Air Dodge, and Up B angles */
 
             if (inputs.b) {
                 outputs.leftStickX = 128 + (directions.x * 85);
