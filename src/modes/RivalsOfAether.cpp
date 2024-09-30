@@ -76,7 +76,7 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
         }
 
         if(directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 79);
+            outputs.leftStickY = 128 + (directions.y * 73);
         }
 
         if (directions.diagonal) {
@@ -97,8 +97,8 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
             }
 
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 107);
-                outputs.leftStickY = 128 + (directions.y * 47);
+                outputs.leftStickX = 128 + (directions.x * 75);
+                outputs.leftStickY = 128 + (directions.y * 33);
             }
 
             if (inputs.c_left) {
@@ -124,11 +124,7 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
         }
 
         if(directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 91);
-
-            if (inputs.a) {
-                outputs.leftStickY = 128 + (directions.y * 70);
-            }
+            outputs.leftStickY = 128 + (directions.y * 75);
         }
 
         if (directions.diagonal) {
