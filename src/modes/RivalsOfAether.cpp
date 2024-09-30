@@ -120,22 +120,16 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
 
     if (inputs.mod_y) {
         if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 44);
+            outputs.leftStickX = 128 + (directions.x * 41);
         }
 
         if(directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 75);
+            outputs.leftStickY = 128 + (directions.y * 78);
         }
 
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 41);
-            outputs.leftStickY = 128 + (directions.y * 70);
-
-            // Vertical tilts
-            if (inputs.a) {
-                outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 76);
-            }
+            outputs.leftStickY = 128 + (directions.y * 76);
 
             /* Extra DI, Air Dodge, and Up B angles */
 
