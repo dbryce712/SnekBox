@@ -1,10 +1,10 @@
-#include "modes/HDR.hpp"
+#include "modes/RushdownRevolt.hpp"
 
 #define ANALOG_STICK_MIN 28
 #define ANALOG_STICK_NEUTRAL 128
 #define ANALOG_STICK_MAX 228
 
-HDR::HDR(socd::SocdType socd_type) {
+RushdownRevolt::RushdownRevolt(socd::SocdType socd_type) {
     _socd_pair_count = 5;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
@@ -15,7 +15,7 @@ HDR::HDR(socd::SocdType socd_type) {
     };
 }
 
-void HDR::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
+void RushdownRevolt::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
     outputs.a = inputs.a;
     outputs.b = inputs.b;
     outputs.x = inputs.x;
@@ -41,19 +41,15 @@ void HDR::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
 
     // Activate home by holding Mod Y
     if ((inputs.mod_y)) outputs.home = inputs.start;
-
-    // Don't override dpad up if it's already pressed using the MX + MY dpad
-    // layer.
-    outputs.dpadUp = outputs.dpadUp || inputs.midshield;
 }
 
-void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
+void RushdownRevolt::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
     // Coordinate calculations to make modifier handling simpler.
     UpdateDirections(
         inputs.left,
         inputs.right,
         inputs.down,
-        inputs.up || inputs.up2,
+        inputs.up || inputs.up2 || inputs.midshield,
         inputs.c_left,
         inputs.c_right,
         inputs.c_down,
