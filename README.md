@@ -43,6 +43,7 @@ Changes:
     - Mod X + Up/Down + B now outputs Up/Down special, respectively
   - Decreased Mod Y magnitude to match PM mode
   - Mod Y Pivot Uptilt/Dtilt now functions properly
+- Rushdown Revolt mode (Mod X + Start + Y)
 
 ## Original ReadMe below:
 
