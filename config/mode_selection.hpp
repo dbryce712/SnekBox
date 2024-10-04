@@ -7,6 +7,7 @@
 #include "modes/Melee20Button.hpp"
 #include "modes/Melee20ButtonGoated.hpp"
 #include "modes/ProjectM.hpp"
+#include "modes/ProjectMBidou.hpp"
 #include "modes/RivalsOfAether.hpp"
 #include "modes/Ultimate.hpp"
 #include "modes/HDR.hpp"
@@ -70,6 +71,22 @@ void select_mode(CommunicationBackend *backend) {
                 new ProjectM(
                     socd::SOCD_2IP,
                     { .true_z_press = true, .ledgedash_max_jump_traj = false }
+                )
+            );
+        } else if (inputs.lightshield) {
+            set_mode(
+                backend,
+                new ProjectMBidou(
+                    socd::SOCD_2IP,
+                    { .true_z_press = true, .ledgedash_max_jump_traj = false }
+                )
+            );
+        } else if (inputs.midshield) {
+            set_mode(
+                backend,
+                new ProjectMBidou(
+                    socd::SOCD_2IP,
+                    { .true_z_press = false, .ledgedash_max_jump_traj = false }
                 )
             );
         }
