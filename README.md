@@ -16,9 +16,7 @@ Changes:
   - Mod X + Start + Z to activate
 - Project M Bidou mode
   - Mod X + Start + Lightshield for true Z; Mod X + Start + Midshield for L+A macro
-  - A and B positions swapped
-  - Up2 acts as third modifier
-    - Up2 + C-stick Left/Right + A outputs pivot slide (AKA Bastard slide)
+  - Up2 acts as 2<sup>nd</sup> A button
 - Added HDR mode (now the default when X is held while plugging in)
   - Set midshield button to D-Pad Up for footstools
   - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively

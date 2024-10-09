@@ -24,15 +24,15 @@ void ProjectMBidou::HandleSocd(InputState &inputs) {
 }
 
 void ProjectMBidou::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.b;
-    outputs.b = inputs.a;
+    outputs.a = inputs.a || inputs.up2;
+    outputs.b = inputs.b;
     outputs.x = inputs.x;
     outputs.y = inputs.y;
     // True Z press vs macro lightshield + A.
     if (_options.true_z_press || inputs.mod_x) {
         outputs.buttonR = inputs.z;
     } else {
-        outputs.a = inputs.b || inputs.z;
+        outputs.a = inputs.a || inputs.z;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
@@ -84,8 +84,8 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.leftStickY = 128 + (directions.y * 93);
         }
 
-        // down + horizontal + A outputs down special
-        if (inputs.a && directions.y == -1) {
+        // down + horizontal + B outputs down special
+        if (inputs.b && directions.y == -1) {
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 85);
         }
@@ -108,7 +108,7 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.leftStickX = 128 + (directions.x * 70);
             outputs.leftStickY = 128 + (directions.y * 34);
 
-            if (inputs.a) {
+            if (inputs.b) {
                 outputs.leftStickX = 128 + (directions.x * 85);
                 outputs.leftStickY = 128 + (directions.y * 31);
             }
@@ -158,7 +158,7 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
-            if (inputs.a) {
+            if (inputs.b) {
                 outputs.leftStickX = 128 + (directions.x * 28);
                 outputs.leftStickY = 128 + (directions.y * 85);
             }
@@ -190,13 +190,13 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
         }
     }
 
-    if (inputs.up2) {
+    /* if (inputs.up2) {
         // Smash pivot slides
         if (directions.cx != 0 && inputs.b) {
             outputs.rightStickX = 128 + (directions.cx * 35);
             outputs.rightStickY = 168;
         }
-    }
+    } */
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
