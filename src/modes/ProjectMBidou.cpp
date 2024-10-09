@@ -5,11 +5,10 @@
 #define ANALOG_STICK_MAX 228
 
 ProjectMBidou::ProjectMBidou(socd::SocdType socd_type, ProjectMBidouOptions options) {
-    _socd_pair_count = 5;
+    _socd_pair_count = 4;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up,      socd_type},
-        socd::SocdPair{ &InputState::down,   &InputState::up2,     socd_type},
         socd::SocdPair{ &InputState::c_left, &InputState::c_right, socd_type},
         socd::SocdPair{ &InputState::c_down, &InputState::c_up,    socd_type},
     };
@@ -32,7 +31,7 @@ void ProjectMBidou::UpdateDigitalOutputs(InputState &inputs, OutputState &output
     if (_options.true_z_press || inputs.mod_x) {
         outputs.buttonR = inputs.z;
     } else {
-        outputs.a = inputs.a || inputs.z;
+        outputs.a = inputs.a || inputs.up2 || inputs.z;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
