@@ -21,7 +21,7 @@ void ProjectM::HandleSocd(InputState &inputs) {
 void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
     outputs.a = inputs.rt1;
     outputs.b = inputs.rf1;
-    outputs.x = inputs.rf2;
+    outputs.y = inputs.rf2;
     /* outputs.y = inputs.rf6; */
     // True Z press vs macro lightshield + A.
     if (_options.true_z_press || inputs.lt1) {
@@ -55,8 +55,8 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
         outputs.dpadRight = true;
 
     if (inputs.lt3) {
-        outputs.x = false;
-        outputs.y = inputs.rf2;
+        outputs.y = false;
+        outputs.x = inputs.rf2;
     }
 }
 
