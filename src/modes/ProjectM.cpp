@@ -139,7 +139,7 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
             }
 
             // snekdash angle
-            if (inputs.l) {
+            if (inputs.l && directions.y == 1) {
                 outputs.leftStickX = 128 + (directions.x * 120);
                 outputs.leftStickY = 128 + (directions.y * 84);
             }
