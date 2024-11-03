@@ -195,6 +195,9 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.rightStickX = 128 + (directions.cx * 35);
             outputs.rightStickY = 168;
         }
+        // Attack stick nairs
+        outputs.rightStickX = 168;
+        outputs.rightStickY = 88;
     } */
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
