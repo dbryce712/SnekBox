@@ -65,7 +65,7 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         inputs.left,
         inputs.right,
         inputs.down,
-        inputs.up || inputs.up2,
+        inputs.up,
         inputs.c_left,
         inputs.c_right,
         inputs.c_down,
@@ -188,6 +188,12 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                 outputs.leftStickY = 128 + (directions.y * 72);
             }
         }
+    }
+
+    // Attack c-stick nair
+    if (inputs.up2) {
+        outputs.rightStickX = 168;
+        outputs.rightStickY = 88;
     }
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
