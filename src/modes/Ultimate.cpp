@@ -10,14 +10,13 @@ Ultimate::Ultimate(socd::SocdType socd_type) {
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up,      socd_type},
-        socd::SocdPair{ &InputState::down,   &InputState::up2,     socd_type},
         socd::SocdPair{ &InputState::c_left, &InputState::c_right, socd_type},
         socd::SocdPair{ &InputState::c_down, &InputState::c_up,    socd_type},
     };
 }
 
 void Ultimate::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.a;
+    outputs.a = inputs.a || inputs.up2;
     outputs.b = inputs.b;
     outputs.x = inputs.x;
     outputs.y = inputs.y;
@@ -54,7 +53,7 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         inputs.left,
         inputs.right,
         inputs.down,
-        inputs.up || inputs.up2,
+        inputs.up,
         inputs.c_left,
         inputs.c_right,
         inputs.c_down,
@@ -247,6 +246,12 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                 outputs.leftStickY = 128 + (directions.y * 69);
             }
         }
+    }
+
+    if (inputs.up2) {
+        // Up2 Nair
+        outputs.leftStickX = 128;
+        outputs.leftStickY = 128;
     }
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
