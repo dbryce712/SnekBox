@@ -24,7 +24,7 @@ void ProjectM::HandleSocd(InputState &inputs) {
 }
 
 void ProjectM::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.a;
+    outputs.a = inputs.a || inputs.up2;
     outputs.b = inputs.b;
     outputs.x = inputs.x;
     outputs.y = inputs.y;
@@ -32,7 +32,7 @@ void ProjectM::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
     if (_options.true_z_press || inputs.mod_x) {
         outputs.buttonR = inputs.z;
     } else {
-        outputs.a = inputs.a || inputs.z;
+        outputs.a = inputs.a || inputs.up2 || inputs.z;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
@@ -190,19 +190,21 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         }
     }
 
-    // Attack c-stick nair
     if (inputs.up2) {
-        outputs.rightStickX = 168;
-        outputs.rightStickY = 88;
-    }
-
-    /* if (inputs.up2) {
-        // Smash stick pivot slides
+        /* // Smash stick pivot slides
         if (directions.cx != 0 && inputs.b) {
             outputs.rightStickX = 128 + (directions.cx * 35);
             outputs.rightStickY = 168;
-        }
-    } */
+        } */
+
+        /* // Attack c-stick nair
+        outputs.rightStickX = 168;
+        outputs.rightStickY = 88; */
+
+        // Up2 Nair
+        outputs.leftStickX = 128;
+        outputs.leftStickY = 128;
+    }
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
