@@ -176,10 +176,10 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
                 outputs.leftStickY = 128 + (directions.y * 55);
             }
             
-            // Pikachu/Pichu double up special
+            /* // Pikachu/Pichu double up-special
             if (inputs.up && inputs.up2 && inputs.b) {
                 outputs.leftStickY = 128 - (directions.y * 40);
-            }
+            } */
 
         }
         if (directions.diagonal && shield_button_pressed) {

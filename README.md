@@ -30,7 +30,6 @@ Changes:
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
   - 2IP SOCD
-  - Pikachu double up-B angle (Up + Up2 + Mod Y)
   - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
   - Changed Mod X and Mod Y wavedash angles to longest and shortest, respectively
   - Changed slideoff DI C-stick diagonal angles to the most optimal ones
