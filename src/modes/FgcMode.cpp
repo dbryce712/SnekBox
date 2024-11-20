@@ -39,8 +39,8 @@ void FgcMode::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
 
     // Activate select/home by holding Mod Y
     if ((inputs.mod_y)) {
-        outputs.select = inputs.midshield;
-        outputs.home = inputs.start;
+        outputs.select = inputs.start;
+        outputs.home = inputs.a;
     }
 
     // Right hand bottom row
@@ -58,7 +58,7 @@ void FgcMode::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
     // Turns off Start / LB when holding Mod Y
     if ((inputs.mod_y)) {
         outputs.start = false;
-        outputs.buttonL = false;
+        outputs.a = false;
         // Turn off DPad 
         outputs.dpadLeft = false;
         outputs.dpadRight = false;
