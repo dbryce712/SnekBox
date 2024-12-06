@@ -5,10 +5,11 @@
 #define ANALOG_STICK_MAX 208
 
 Melee20ButtonGoated::Melee20ButtonGoated(socd::SocdType socd_type, Melee20ButtonGoatedOptions options) {
-    _socd_pair_count = 4;
+    _socd_pair_count = 5;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up,      socd_type},
+        socd::SocdPair{ &InputState::down,   &InputState::up2,     socd_type},
         socd::SocdPair{ &InputState::c_left, &InputState::c_right, socd_type},
         socd::SocdPair{ &InputState::c_down, &InputState::c_up,    socd_type},
     };
@@ -23,7 +24,7 @@ void Melee20ButtonGoated::HandleSocd(InputState &inputs) {
 }
 
 void Melee20ButtonGoated::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.a || inputs.up2;
+    outputs.a = inputs.a;
     outputs.b = inputs.b;
     outputs.x = inputs.x;
     outputs.y = inputs.y;
@@ -56,7 +57,7 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
         inputs.left,
         inputs.right,
         inputs.down,
-        inputs.up,
+        inputs.up || inputs.up2,
         inputs.c_left,
         inputs.c_right,
         inputs.c_down,
@@ -176,10 +177,10 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
                 outputs.leftStickY = 128 + (directions.y * 55);
             }
             
-            /* // Pikachu/Pichu double up-special
+            // Pikachu/Pichu double up-special
             if (inputs.up && inputs.up2 && inputs.b) {
                 outputs.leftStickY = 128 - (directions.y * 40);
-            } */
+            }
 
         }
         if (directions.diagonal && shield_button_pressed) {
@@ -275,11 +276,11 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
         }
     }
 
-    if (inputs.up2) {
+    /* if (inputs.up2) {
         // Up2 Nair
         outputs.leftStickX = 128;
         outputs.leftStickY = 128;
-    }
+    } */
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).

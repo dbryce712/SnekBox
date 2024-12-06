@@ -12,7 +12,6 @@ Changes:
   - Left/Right + Down always inputs down special
   - Mod X crouching (useful on platforms)
   - True maximum length wavedashes (Mod X)
-  - Up2 Nair
 - Added an input mode for ProjectM with true Z press enabled
   - Mod X + Start + Z to activate
 - Project M Bidou mode
@@ -24,7 +23,6 @@ Changes:
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
   - Left/Right + Down always inputs down special
   - Mod X crouching (useful on platforms)
-  - Up2 Nair
 - Rivals of Aether mode overhauled for Rivals of Aether II
 - Buffed Melee mode; Mod X + Start + Up2 to activate
   - Added Mod Y + Down shield drops
@@ -36,7 +34,7 @@ Changes:
   - Added buffered turnaround vertical tilts (Mod Y)
   - Added slight-angled forward tilt/smash angles (Mod X + Mod Y)
   - Removed turnaround neutral B nerf
-  - Up2 Nair
+  - Pikachu double up-B angle (Up + Up2 + Mod Y)
 - FGC mode now uses 2IP SOCD
 - Ultimate mode improvements
   - Midshield button changed to up taunt
@@ -48,7 +46,6 @@ Changes:
     - Mod X + Up/Down + B now outputs Up/Down special, respectively
   - Decreased Mod Y magnitude to match PM mode
   - Mod Y Pivot Uptilt/Dtilt now functions properly
-  - Up2 Nair
 - Rushdown Revolt mode (Mod X + Start + Y)
 
 ## Original ReadMe below:

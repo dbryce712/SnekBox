@@ -5,10 +5,11 @@
 #define ANALOG_STICK_MAX 228
 
 ProjectM::ProjectM(socd::SocdType socd_type, ProjectMOptions options) {
-    _socd_pair_count = 4;
+    _socd_pair_count = 5;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up,      socd_type},
+        socd::SocdPair{ &InputState::down,   &InputState::up2,     socd_type},
         socd::SocdPair{ &InputState::c_left, &InputState::c_right, socd_type},
         socd::SocdPair{ &InputState::c_down, &InputState::c_up,    socd_type},
     };
@@ -23,7 +24,7 @@ void ProjectM::HandleSocd(InputState &inputs) {
 }
 
 void ProjectM::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.a || inputs.up2;
+    outputs.a = inputs.a;
     outputs.b = inputs.b;
     outputs.x = inputs.x;
     outputs.y = inputs.y;
@@ -31,7 +32,7 @@ void ProjectM::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
     if (_options.true_z_press || inputs.mod_x) {
         outputs.buttonR = inputs.z;
     } else {
-        outputs.a = inputs.a || inputs.up2 || inputs.z;
+        outputs.a = inputs.a || inputs.z;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
@@ -64,7 +65,7 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         inputs.left,
         inputs.right,
         inputs.down,
-        inputs.up,
+        inputs.up || inputs.up2,
         inputs.c_left,
         inputs.c_right,
         inputs.c_down,
@@ -189,21 +190,21 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         }
     }
 
-    if (inputs.up2) {
-        /* // Smash stick pivot slides
+    /* if (inputs.up2) {
+        // Smash stick pivot slides
         if (directions.cx != 0 && inputs.b) {
             outputs.rightStickX = 128 + (directions.cx * 35);
             outputs.rightStickY = 168;
-        } */
+        }
 
-        /* // Attack c-stick nair
+        // Attack c-stick nair
         outputs.rightStickX = 168;
-        outputs.rightStickY = 88; */
+        outputs.rightStickY = 88;
 
         // Up2 Nair
         outputs.leftStickX = 128;
         outputs.leftStickY = 128;
-    }
+    } */
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
