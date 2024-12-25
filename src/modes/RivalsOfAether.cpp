@@ -5,11 +5,10 @@
 #define ANALOG_STICK_MAX 255
 
 RivalsOfAether::RivalsOfAether(socd::SocdType socd_type) {
-    _socd_pair_count = 5;
+    _socd_pair_count = 4;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up,      socd_type},
-        socd::SocdPair{ &InputState::down,   &InputState::up2,     socd_type},
         socd::SocdPair{ &InputState::c_left, &InputState::c_right, socd_type},
         socd::SocdPair{ &InputState::c_down, &InputState::c_up,    socd_type},
     };
@@ -28,7 +27,7 @@ void RivalsOfAether::UpdateDigitalOutputs(InputState &inputs, OutputState &outpu
     outputs.select = inputs.select;
     outputs.home = inputs.home;
     outputs.leftStickClick = inputs.up2;
-    
+
     // Activate D-Pad layer by holding Mod X + Mod Y.
     if (inputs.mod_x && inputs.mod_y) {
         outputs.dpadUp = inputs.c_up;
