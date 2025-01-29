@@ -47,7 +47,7 @@ void select_mode(CommunicationBackend *backend) {
                 backend,
                 new ProjectM(
                     socd::SOCD_2IP,
-                    { .true_z_press = false, .ledgedash_max_jump_traj = false }
+                    { .true_z_press = true, .ledgedash_max_jump_traj = false }
                 )
             );
         } else if (inputs.up2) {
@@ -70,7 +70,7 @@ void select_mode(CommunicationBackend *backend) {
                 backend,
                 new ProjectM(
                     socd::SOCD_2IP,
-                    { .true_z_press = true, .ledgedash_max_jump_traj = false }
+                    { .true_z_press = false, .ledgedash_max_jump_traj = false }
                 )
             );
         } else if (inputs.lightshield) {

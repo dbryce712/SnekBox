@@ -165,6 +165,10 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
     if (inputs.mod_x && inputs.mod_y) {
         outputs.rightStickX = 128;
         outputs.rightStickY = 128;
+
+        if (directions.horizontal) {
+            outputs.leftStickX = 128 + (directions.x * 61);
+        }
     }
 
     // Turns off Start when holding Mod X or Mod Y

@@ -129,11 +129,11 @@ void setup() {
         backends = new CommunicationBackend *[backend_count] { primary_backend };
     }
 
-    // Default to ProjectM mode (true z == false).
+    // Default to ProjectM mode (true z == true).
     primary_backend->SetGameMode(
         new ProjectM(
                     socd::SOCD_2IP,
-                    { .true_z_press = false, .ledgedash_max_jump_traj = false }
+                    { .true_z_press = true, .ledgedash_max_jump_traj = false }
                 )
     );
 }
