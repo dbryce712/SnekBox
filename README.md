@@ -17,7 +17,7 @@ Changes:
 - Project M Bidou mode
   - Mod X + Start + A
   - Up2 acts as 2<sup>nd</sup> A button
-- Project M Nair mode
+- Project Nair mode
   - Mod X + Start + Lightshield for true Z; Mod X + Start + Midshield for L+A macro
   - Up2 acts as C-stick nair button (attack stick)
 - Added HDR mode (now the default when X is held while plugging in)
