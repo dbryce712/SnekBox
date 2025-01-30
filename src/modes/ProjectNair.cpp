@@ -1,10 +1,10 @@
-#include "modes/ProjectMBidou.hpp"
+#include "modes/ProjectNair.hpp"
 
 #define ANALOG_STICK_MIN 28
 #define ANALOG_STICK_NEUTRAL 128
 #define ANALOG_STICK_MAX 228
 
-ProjectMBidou::ProjectMBidou(socd::SocdType socd_type, ProjectMBidouOptions options) {
+ProjectNair::ProjectNair(socd::SocdType socd_type, ProjectNairOptions options) {
     _socd_pair_count = 4;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
         socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
@@ -17,13 +17,13 @@ ProjectMBidou::ProjectMBidou(socd::SocdType socd_type, ProjectMBidouOptions opti
     _horizontal_socd = false;
 }
 
-void ProjectMBidou::HandleSocd(InputState &inputs) {
+void ProjectNair::HandleSocd(InputState &inputs) {
     _horizontal_socd = inputs.left && inputs.right;
     InputMode::HandleSocd(inputs);
 }
 
-void ProjectMBidou::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.a || inputs.up2;
+void ProjectNair::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
+    outputs.a = inputs.a;
     outputs.b = inputs.b;
     outputs.x = inputs.x;
     outputs.y = inputs.y;
@@ -31,7 +31,7 @@ void ProjectMBidou::UpdateDigitalOutputs(InputState &inputs, OutputState &output
     if (_options.true_z_press || inputs.mod_x) {
         outputs.buttonR = inputs.z;
     } else {
-        outputs.a = inputs.a || inputs.up2 || inputs.z;
+        outputs.a = inputs.a || inputs.z;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
@@ -59,7 +59,7 @@ void ProjectMBidou::UpdateDigitalOutputs(InputState &inputs, OutputState &output
         outputs.dpadRight = true;
 }
 
-void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
+void ProjectNair::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
     UpdateDirections(
         inputs.left,
         inputs.right,
@@ -189,16 +189,17 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
         }
     }
 
-    /* if (inputs.up2) {
-        // Smash pivot slides; inputs.b = outputs.a
+    if (inputs.up2) {
+        /* // Smash pivot slides; inputs.b = outputs.a
         if (directions.cx != 0 && inputs.b) {
             outputs.rightStickX = 128 + (directions.cx * 35);
             outputs.rightStickY = 168;
-        }
+        } */
+
         // Attack stick nairs
         outputs.rightStickX = 168;
         outputs.rightStickY = 88;
-    } */
+    }
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).

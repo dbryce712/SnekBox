@@ -190,22 +190,6 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         }
     }
 
-    /* if (inputs.up2) {
-        // Smash stick pivot slides
-        if (directions.cx != 0 && inputs.b) {
-            outputs.rightStickX = 128 + (directions.cx * 35);
-            outputs.rightStickY = 168;
-        }
-
-        // Attack c-stick nair
-        outputs.rightStickX = 168;
-        outputs.rightStickY = 88;
-
-        // Up2 Nair
-        outputs.leftStickX = 128;
-        outputs.leftStickY = 128;
-    } */
-
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
     // We don't apply this for c-up + c-left/c-right in case we want to implement
