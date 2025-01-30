@@ -132,7 +132,7 @@ void setup() {
     // Default to ProjectM mode (true z == true).
     primary_backend->SetGameMode(
         new ProjectM(
-                    socd::SOCD_2IP,
+                    socd::SOCD_NEUTRAL,
                     { .true_z_press = true, .ledgedash_max_jump_traj = false }
                 )
     );

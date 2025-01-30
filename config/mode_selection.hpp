@@ -47,14 +47,14 @@ void select_mode(CommunicationBackend *backend) {
             set_mode(
                 backend,
                 new ProjectM(
-                    socd::SOCD_2IP,
+                    socd::SOCD_NEUTRAL,
                     { .true_z_press = true, .ledgedash_max_jump_traj = false }
                 )
             );
         } else if (inputs.up2) {
             set_mode(
                 backend,
-                new Melee20ButtonGoated(socd::SOCD_2IP, { .crouch_walk_os = false })
+                new Melee20ButtonGoated(socd::SOCD_NEUTRAL, { .crouch_walk_os = false })
             );
         } else if (inputs.down) {
             set_mode(backend, new Ultimate(socd::SOCD_2IP));
@@ -70,7 +70,7 @@ void select_mode(CommunicationBackend *backend) {
             set_mode(
                 backend,
                 new ProjectM(
-                    socd::SOCD_2IP,
+                    socd::SOCD_NEUTRAL,
                     { .true_z_press = false, .ledgedash_max_jump_traj = false }
                 )
             );
@@ -78,7 +78,7 @@ void select_mode(CommunicationBackend *backend) {
             set_mode(
                 backend,
                 new ProjectMBidou(
-                    socd::SOCD_2IP,
+                    socd::SOCD_NEUTRAL,
                     { .true_z_press = true, .ledgedash_max_jump_traj = false }
                 )
             );
@@ -86,7 +86,7 @@ void select_mode(CommunicationBackend *backend) {
             set_mode(
                 backend,
                 new ProjectNair(
-                    socd::SOCD_2IP,
+                    socd::SOCD_NEUTRAL,
                     { .true_z_press = true, .ledgedash_max_jump_traj = false }
                 )
             );
@@ -94,16 +94,16 @@ void select_mode(CommunicationBackend *backend) {
             set_mode(
                 backend,
                 new ProjectNair(
-                    socd::SOCD_2IP,
+                    socd::SOCD_NEUTRAL,
                     { .true_z_press = false, .ledgedash_max_jump_traj = false }
                 )
             );
         }
-    } else if (inputs.mod_y && !inputs.mod_x && inputs.start) {
+    } /* else if (inputs.mod_y && !inputs.mod_x && inputs.start) {
         if (inputs.l) {
             set_mode(backend, new DefaultKeyboardMode(socd::SOCD_2IP));
         }
-    }
+    } */
 }
 
 #endif
