@@ -6,8 +6,7 @@ Changes:
 - Swapped A and C-stick down buttons
 - Made ProjectM mode default (true Z press = true)
   - Added snekdash angles (use mod X + L)
-  - 2IP SOCD
-  - ledgedash_max_jump_traj = false
+  - Neutral SOCD
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
   - Left/Right + Down always inputs down special
   - Mod X crouching (useful on platforms)
@@ -30,7 +29,7 @@ Changes:
 - Buffed Melee mode; Mod X + Start + Up2 to activate
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
-  - 2IP SOCD
+  - Neutral SOCD
   - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
   - Changed Mod X and Mod Y wavedash angles to longest and shortest, respectively
   - Changed slideoff DI C-stick diagonal angles to the most optimal ones
