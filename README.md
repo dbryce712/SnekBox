@@ -7,7 +7,6 @@ Changes:
 - Neutral SOCD for all modes
 - Made ProjectM mode default (true Z press = true)
   - Added snekdash angles (use mod X + L)
-  - ledgedash_max_jump_traj = false
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
   - Left/Right + Down always inputs down special
   - Mod X crouching (useful on platforms)
