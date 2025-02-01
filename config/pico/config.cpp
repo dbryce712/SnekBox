@@ -97,7 +97,7 @@ void setup() {
             backends = new CommunicationBackend *[backend_count] { primary_backend };
 
             // Default to HDR mode on Switch.
-            primary_backend->SetGameMode(new HDR(socd::SOCD_2IP));
+            primary_backend->SetGameMode(new HDR(socd::SOCD_NEUTRAL));
             return;
         } else if (button_holds.z) {
             // If no console detected and Z is held on plugin then use DInput backend.
