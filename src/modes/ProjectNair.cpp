@@ -197,7 +197,7 @@ void ProjectNair::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) 
         } */
 
         // Attack stick nairs
-        outputs.rightStickX = 168;
+        outputs.rightStickX = 88;
         outputs.rightStickY = 88;
     }
 
