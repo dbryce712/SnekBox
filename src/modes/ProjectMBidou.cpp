@@ -107,34 +107,29 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.leftStickX = 128 + (directions.x * 70);
             outputs.leftStickY = 128 + (directions.y * 34);
 
-            if (inputs.b) {
-                outputs.leftStickX = 128 + (directions.x * 85);
-                outputs.leftStickY = 128 + (directions.y * 31);
-            }
-
-            if (inputs.r) {
+            if (inputs.r || inputs.b) {
                 outputs.leftStickX = 128 + (directions.x * 96);
                 outputs.leftStickY = 128 + (directions.y * 28);
             }
-
-            if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 77);
-                outputs.leftStickY = 128 + (directions.y * 55);
-            }
-
+            
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 82);
-                outputs.leftStickY = 128 + (directions.y * 36);
+                outputs.leftStickX = 128 + (directions.x * 99);
+                outputs.leftStickY = 128 + (directions.y * 40);
             }
 
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 84);
+                outputs.leftStickX = 128 + (directions.x * 95);
                 outputs.leftStickY = 128 + (directions.y * 50);
             }
 
+            if (inputs.c_up) {
+                outputs.leftStickX = 128 + (directions.x * 86);
+                outputs.leftStickY = 128 + (directions.y * 57);
+            }
+
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 72);
-                outputs.leftStickY = 128 + (directions.y * 61);
+                outputs.leftStickX = 128 + (directions.x * 93);
+                outputs.leftStickY = 128 + (directions.y * 76);
             }
 
             // snekdash angle
@@ -157,34 +152,34 @@ void ProjectMBidou::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
-            if (inputs.b) {
-                outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.leftStickY = 128 + (directions.y * 85);
-            }
-
             if (inputs.r) {
                 outputs.leftStickX = 128 + (directions.x * 51);
                 outputs.leftStickY = 128 + (directions.y * 82);
             }
 
-            if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 55);
-                outputs.leftStickY = 128 + (directions.y * 77);
+            if (inputs.b) {
+                outputs.leftStickX = 128 + (directions.x * 28);
+                outputs.leftStickY = 128 + (directions.y * 96);
             }
 
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 34);
-                outputs.leftStickY = 128 + (directions.y * 82);
+                outputs.leftStickX = 128 + (directions.x * 40);
+                outputs.leftStickY = 128 + (directions.y * 99);
             }
 
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 40);
-                outputs.leftStickY = 128 + (directions.y * 84);
+                outputs.leftStickX = 128 + (directions.x * 50);
+                outputs.leftStickY = 128 + (directions.y * 95);
+            }
+
+            if (inputs.c_up) {
+                outputs.leftStickX = 128 + (directions.x * 57);
+                outputs.leftStickY = 128 + (directions.y * 86);
             }
 
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 62);
-                outputs.leftStickY = 128 + (directions.y * 72);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 93);
             }
         }
     }
