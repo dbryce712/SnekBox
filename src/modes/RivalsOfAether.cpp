@@ -85,35 +85,67 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
 
             // Angled F-tilts
             if (inputs.a) {
-                outputs.leftStickX = 128 + (directions.x * 81);
-                outputs.leftStickY = 128 + (directions.y * 46);
+                outputs.leftStickX = 128 + (directions.x * 69);
+                outputs.leftStickY = 128 + (directions.y * 53);
             }
-
-            /* Extra DI, Air Dodge, and Up B angles */
 
             if (inputs.b) {
-                outputs.leftStickX = 128 + (directions.x * 85);
-                outputs.leftStickY = 128 + (directions.y * 31);
+                outputs.leftStickX = 128 + (directions.x * 96);
+                outputs.leftStickY = 128 + (directions.y * 28);
             }
-
+            
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 75);
-                outputs.leftStickY = 128 + (directions.y * 33);
+                outputs.leftStickX = 128 + (directions.x * 84);
+                outputs.leftStickY = 128 + (directions.y * 34);
             }
 
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 109);
-                outputs.leftStickY = 128 + (directions.y * 65);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 40);
             }
-      
+            
             if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 100);
-                outputs.leftStickY = 128 + (directions.y * 72);
+                outputs.leftStickX = 128 + (directions.x * 86);
+                outputs.leftStickY = 128 + (directions.y * 57);
             }
-     
+
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 94);
-                outputs.leftStickY = 128 + (directions.y * 79);
+                outputs.leftStickX = 128 + (directions.x * 82);
+                outputs.leftStickY = 128 + (directions.y * 67);
+            }
+
+            /* Shortest UpB when holding Z*/
+            if (inputs.z) { 
+                // (x, y), (53, 68), (~0.31, ~0.188) [coords, code_values, in-game values] 
+                outputs.leftStickX = 128 + (directions.x * 53);
+                outputs.leftStickY = 128 + (directions.y * 42);
+
+                /* 60% Magnitude UpB when holding B and Z*/
+                if (inputs.b) {
+                    // (x, y), (68, 42), (~0.49, ~0.188) [coords, code_values, in-game values]
+                    outputs.leftStickX = 128 + (directions.x * 68);
+                    outputs.leftStickY = 128 + (directions.y * 42);
+                    // (x, y), (71, 47), (~0.52, ~0.24) [coords, code_values, in-game values]
+                    if (inputs.c_down) {
+                        outputs.leftStickX = 128 + (directions.x * 71);
+                        outputs.leftStickY = 128 + (directions.y * 47);
+                    }
+                    // (x, y), (71, 51), (~0.52, 0.29~) [coords, code_values, in-game values]
+                    if (inputs.c_left) {
+                        outputs.leftStickX = 128 + (directions.x * 71);
+                        outputs.leftStickY = 128 + (directions.y * 51);
+                    }
+                    // (x, y), (69, 55), (~0.51, ~0.34) [coords, code_values, in-game values]
+                    if (inputs.c_up) {
+                        outputs.leftStickX = 128 + (directions.x * 69);
+                        outputs.leftStickY = 128 + (directions.y * 55);
+                    }
+                    // (x, y), (64, 60), (, ~0.38) [coords, code_values, in-game values]
+                    if (inputs.c_right) {
+                        outputs.leftStickX = 128 + (directions.x * 64);
+                        outputs.leftStickY = 128 + (directions.y * 60);
+                    }
+                }
             }
         }
     }
@@ -131,32 +163,63 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 41);
             outputs.leftStickY = 128 + (directions.y * 76);
 
-            /* Extra DI, Air Dodge, and Up B angles */
-
             if (inputs.b) {
                 outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.leftStickY = 128 + (directions.y * 85);
+                outputs.leftStickY = 128 + (directions.y * 96);
             }
 
-            // Angles just for DI and Up B
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 106);
+                outputs.leftStickX = 128 + (directions.x * 34);
+                outputs.leftStickY = 128 + (directions.y * 84);
             }
 
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 52);
-                outputs.leftStickY = 128 + (directions.y * 109);
+                outputs.leftStickX = 128 + (directions.x * 40);
+                outputs.leftStickY = 128 + (directions.y * 76);
             }
-      
+
             if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 72);
-                outputs.leftStickY = 128 + (directions.y * 100);
+                outputs.leftStickX = 128 + (directions.x * 57);
+                outputs.leftStickY = 128 + (directions.y * 86);
             }
-     
+
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 81);
-                outputs.leftStickY = 128 + (directions.y * 94);
+                outputs.leftStickX = 128 + (directions.x * 67);
+                outputs.leftStickY = 128 + (directions.y * 82);
+            }
+            
+            /* Shortest UpB when holding Z*/
+            if (inputs.z) {
+                // (x, y), (42, 53), (~0.188, ~0.31) [coords, code_values, in-game values] 
+                outputs.leftStickX = 128 + (directions.x * 42);
+                outputs.leftStickY = 128 + (directions.y * 53);
+
+                /* 60% Magnitude UpB when holding B and Z*/
+                if (inputs.b) {
+                    // (x, y), (42, 68), (~0.188, ~0.49) [coords, code_values, in-game values] 
+                    outputs.leftStickX = 128 + (directions.x * 42);
+                    outputs.leftStickY = 128 + (directions.y * 68);
+                    // (x, y), (47, 71), (~0.24, ~0.52) [coords, code_values, in-game values]
+                    if (inputs.c_down) {
+                        outputs.leftStickX = 128 + (directions.x * 47);
+                        outputs.leftStickY = 128 + (directions.y * 71);
+                    }
+                    // (x, y), (51, 71), (~0.29, ~0.52) [coords, code_values, in-game values]
+                    if (inputs.c_left) {
+                        outputs.leftStickX = 128 + (directions.x * 51);
+                        outputs.leftStickY = 128 + (directions.y * 71);
+                    }
+                    // (x, y), (55, 69), (~0.34, ~0.51) [coords, code_values, in-game values]
+                    if (inputs.c_up) {
+                        outputs.leftStickX = 128 + (directions.x * 55);
+                        outputs.leftStickY = 128 + (directions.y * 69);
+                    }
+                    // (x, y), (60, 64), (~0.38, ~0.) [coords, code_values, in-game values]
+                    if (inputs.c_right) {
+                        outputs.leftStickX = 128 + (directions.x * 60);
+                        outputs.leftStickY = 128 + (directions.y * 64);
+                    }
+                }
             }
         }
     }
@@ -167,6 +230,7 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
         outputs.rightStickY = 128;
 
         if (directions.horizontal) {
+            // "perfect" walking speed (matches animation)
             outputs.leftStickX = 128 + (directions.x * 61);
         }
     }
