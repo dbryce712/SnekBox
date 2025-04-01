@@ -69,6 +69,7 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
     );
 
     bool shield_button_pressed = inputs.l || inputs.r || inputs.lightshield || inputs.midshield;
+    
     if (directions.diagonal) {
         // q1/2 = 7000 7000
         outputs.leftStickX = 128 + (directions.x * 56);
@@ -76,9 +77,14 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
         // L, R, LS, and MS + q3/4 = 7000 6875 (For vanilla shield drop. Gives 44.5
         // degree wavedash). Also used as default q3/4 diagonal if crouch walk option select is
         // enabled.
-        if (directions.y == -1 && (shield_button_pressed || _options.crouch_walk_os)) {
-            outputs.leftStickX = 128 + (directions.x * 56);
-            outputs.leftStickY = 128 + (directions.y * 55);
+        if (directions.y == -1) {
+            outputs.leftStickX = 128 + (directions.x * 80);
+            outputs.leftStickY = 128 + (directions.y * 60);
+
+            if (shield_button_pressed || _options.crouch_walk_os) {
+                outputs.leftStickX = 128 + (directions.x * 56);
+                outputs.leftStickY = 128 + (directions.y * 55);
+            }     
         }
     }
 
@@ -102,58 +108,33 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
             outputs.leftStickY = 128 + (directions.y * 23);
         }
 
-        /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
             // 22.9638 - 7375 3125 = 59 25
             outputs.leftStickX = 128 + (directions.x * 59);
             outputs.leftStickY = 128 + (directions.y * 25);
-            // 27.37104 - 7000 3625 (27.38) = 56 29
-            if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 56);
-                outputs.leftStickY = 128 + (directions.y * 29);
+
+            /* Up B Angles */
+            if (inputs.b) {
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 23);
             }
-            // 31.77828 - 7875 4875 (31.76) = 63 39
+            if (inputs.c_down) {
+                outputs.leftStickX = 128 + (directions.x * 75);
+                outputs.leftStickY = 128 + (directions.y * 31);
+            }
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 63);
+                outputs.leftStickX = 128 + (directions.x * 73);
                 outputs.leftStickY = 128 + (directions.y * 39);
             }
-            // 36.18552 - 7000 5125 (36.21) = 56 41
             if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 56);
+                outputs.leftStickX = 128 + (directions.x * 69);
+                outputs.leftStickY = 128 + (directions.y * 46);
+            }
+            if (inputs.c_right) {
+                outputs.leftStickX = 128 + (directions.x * 50);
                 outputs.leftStickY = 128 + (directions.y * 41);
             }
-            // 40.59276 - 6125 5250 (40.6) = 49 42
-            if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 49);
-                outputs.leftStickY = 128 + (directions.y * 42);
-            }
-
-            /* Extended Up B Angles */
-            if (inputs.b) {
-                // 22.9638 - 9125 3875 (23.0) = 73 31
-                outputs.leftStickX = 128 + (directions.x * 73);
-                outputs.leftStickY = 128 + (directions.y * 31);
-                // 27.37104 - 8750 4500 (27.2) = 70 36
-                if (inputs.c_down) {
-                    outputs.leftStickX = 128 + (directions.x * 70);
-                    outputs.leftStickY = 128 + (directions.y * 36);
-                }
-                // 31.77828 - 8500 5250 (31.7) = 68 42
-                if (inputs.c_left) {
-                    outputs.leftStickX = 128 + (directions.x * 68);
-                    outputs.leftStickY = 128 + (directions.y * 42);
-                }
-                // 36.18552 - 7375 5375 (36.1) = 59 43
-                if (inputs.c_up) {
-                    outputs.leftStickX = 128 + (directions.x * 59);
-                    outputs.leftStickY = 128 + (directions.y * 43);
-                }
-                // 40.59276 - 6375 5375 (40.1) = 51 43
-                if (inputs.c_right) {
-                    outputs.leftStickX = 128 + (directions.x * 51);
-                    outputs.leftStickY = 128 + (directions.y * 43);
-                }
-            }
+            
         }
 
         // Angled fsmash
@@ -171,7 +152,12 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
         }
         // MY + Vertical = 7375 = 59
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 59);
+            if (directions.y == 1) {
+                outputs.leftStickY = 128 + (directions.y * 52);
+            }
+            if (directions.y == -1) {
+                outputs.leftStickY = 128 + (directions.y * 59);
+            }
 
             if (shield_button_pressed) {
                 outputs.leftStickY = 128 + (directions.y * 55);
@@ -201,70 +187,39 @@ void Melee20ButtonGoated::UpdateAnalogOutputs(InputState &inputs, OutputState &o
             }
         }
 
-        /* Up B angles */
-        if (directions.diagonal && !shield_button_pressed) {
-            // 67.0362 - 3125 7375 = 25 59
-            outputs.leftStickX = 128 + (directions.x * 25);
-            outputs.leftStickY = 128 + (directions.y * 59);
-            // slight angled ftilts
-            if (inputs.a) {
-                // buffered turnaround vertical tilts
-                if (directions.y == -1) {
-                    outputs.leftStickX = 128 + (directions.x * 23);
-                    outputs.leftStickY = 128 + (directions.y * 53);
-                }
 
-                if (directions.y == 1) {
-                    outputs.leftStickX = 128 + (directions.x * 23);
-                    outputs.leftStickY = 128 + (directions.y * 52);
-                }
+        if (directions.diagonal && !shield_button_pressed) {
+            // buffered turnaround vertical tilts
+            if (directions.y == -1) {
+                outputs.leftStickX = 128 + (directions.x * 23);
+                outputs.leftStickY = 128 + (directions.y * 53);
             }
-            // 62.62896 - 3625 7000 (62.62) = 29 56
+
+            if (directions.y == 1) {
+                outputs.leftStickX = 128 + (directions.x * 23);
+                outputs.leftStickY = 128 + (directions.y * 52);
+            }
+
+            /* Up B Angles */
+            if (inputs.b) {
+                outputs.leftStickX = 128 + (directions.x * 23);
+                outputs.leftStickY = 128 + (directions.y * 76);
+            }
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 29);
-                outputs.leftStickY = 128 + (directions.y * 56);
+                outputs.leftStickX = 128 + (directions.x * 31);
+                outputs.leftStickY = 128 + (directions.y * 75);
             }
-            // 58.22172 - 4875 7875 (58.24) = 39 63
             if (inputs.c_left) {
                 outputs.leftStickX = 128 + (directions.x * 39);
-                outputs.leftStickY = 128 + (directions.y * 63);
+                outputs.leftStickY = 128 + (directions.y * 75);
             }
-            // 53.81448 - 5125 7000 (53.79) = 41 56
             if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 41);
-                outputs.leftStickY = 128 + (directions.y * 56);
+                outputs.leftStickX = 128 + (directions.x * 46);
+                outputs.leftStickY = 128 + (directions.y * 69);
             }
-            // 49.40724 - 6375 7625 (50.10) = 51 61
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 61);
-            }
-
-            /* Extended Up B Angles */
-            if (inputs.b) {
-                // 67.0362 - 3875 9125 = 31 73
-                outputs.leftStickX = 128 + (directions.x * 31);
-                outputs.leftStickY = 128 + (directions.y * 73);
-                // 62.62896 - 4500 8750 (62.8) = 36 70
-                if (inputs.c_down) {
-                    outputs.leftStickX = 128 + (directions.x * 36);
-                    outputs.leftStickY = 128 + (directions.y * 70);
-                }
-                // 58.22172 - 5250 8500 (58.3) = 42 68
-                if (inputs.c_left) {
-                    outputs.leftStickX = 128 + (directions.x * 42);
-                    outputs.leftStickY = 128 + (directions.y * 68);
-                }
-                // 53.81448 - 5875 8000 (53.7) = 47 64
-                if (inputs.c_up) {
-                    outputs.leftStickX = 128 + (directions.x * 47);
-                    outputs.leftStickY = 128 + (directions.y * 64);
-                }
-                // 49.40724 - 5875 7125 (50.49) = 47 57
-                if (inputs.c_right) {
-                    outputs.leftStickX = 128 + (directions.x * 47);
-                    outputs.leftStickY = 128 + (directions.y * 57);
-                }
+                outputs.leftStickX = 128 + (directions.x * 41);
+                outputs.leftStickY = 128 + (directions.y * 50);
             }
         }
 
