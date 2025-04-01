@@ -5,6 +5,7 @@ Changes:
 - Added Up2 functionality (BubbleBox, GRAM, etc.)
 - Swapped A and C-stick down buttons
 - Neutral SOCD for all modes
+- Expanded Firefox angle range for PM, Rivals, and Buffed Melee modes (now hold B for shallowest/steepest angle)
 - Made ProjectM mode default (true Z press = true)
   - Added snekdash angles (use mod X + L)
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
