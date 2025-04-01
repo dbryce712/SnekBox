@@ -7,7 +7,7 @@
 HDR::HDR(socd::SocdType socd_type) {
     _socd_pair_count = 5;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
-        socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
+        socd::SocdPair{&InputState::left,    &InputState::right,   socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up,      socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up2,     socd_type},
         socd::SocdPair{ &InputState::c_left, &InputState::c_right, socd_type},
@@ -35,13 +35,15 @@ void HDR::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
         outputs.dpadLeft = inputs.c_left;
         outputs.dpadRight = inputs.c_right;
     }
-    
+
     // Activate select by holding Mod X
-    if ((inputs.mod_x)) outputs.select = inputs.start;
-
+    if ((inputs.mod_x)) {
+        outputs.select = inputs.start;
+    }
     // Activate home by holding Mod Y
-    if ((inputs.mod_y)) outputs.home = inputs.start;
-
+    if ((inputs.mod_y)) {
+        outputs.home = inputs.start;
+    }
     // Don't override dpad up if it's already pressed using the MX + MY dpad
     // layer.
     outputs.dpadUp = outputs.dpadUp || inputs.midshield;
@@ -101,24 +103,24 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                 outputs.leftStickY = 128 + (directions.y * 28);
             }
 
-            if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 77);
-                outputs.leftStickY = 128 + (directions.y * 55);
-            }
-
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 82);
-                outputs.leftStickY = 128 + (directions.y * 36);
+                outputs.leftStickX = 128 + (directions.x * 99);
+                outputs.leftStickY = 128 + (directions.y * 40);
             }
 
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 84);
+                outputs.leftStickX = 128 + (directions.x * 95);
                 outputs.leftStickY = 128 + (directions.y * 50);
             }
 
+            if (inputs.c_up) {
+                outputs.leftStickX = 128 + (directions.x * 86);
+                outputs.leftStickY = 128 + (directions.y * 57);
+            }
+
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 72);
-                outputs.leftStickY = 128 + (directions.y * 61);
+                outputs.leftStickX = 128 + (directions.x * 93);
+                outputs.leftStickY = 128 + (directions.y * 76);
             }
         }
     }
@@ -141,34 +143,34 @@ void HDR::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                 outputs.leftStickY = 128 + (directions.y * 69);
             }
 
-            if (inputs.b) {
-                outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.leftStickY = 128 + (directions.y * 85);
-            }
-
             if (inputs.r) {
                 outputs.leftStickX = 128 + (directions.x * 51);
                 outputs.leftStickY = 128 + (directions.y * 82);
             }
 
-            if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 55);
-                outputs.leftStickY = 128 + (directions.y * 77);
+            if (inputs.b) {
+                outputs.leftStickX = 128 + (directions.x * 28);
+                outputs.leftStickY = 128 + (directions.y * 96);
             }
 
             if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 34);
-                outputs.leftStickY = 128 + (directions.y * 82);
+                outputs.leftStickX = 128 + (directions.x * 40);
+                outputs.leftStickY = 128 + (directions.y * 99);
             }
 
             if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 40);
-                outputs.leftStickY = 128 + (directions.y * 84);
+                outputs.leftStickX = 128 + (directions.x * 50);
+                outputs.leftStickY = 128 + (directions.y * 95);
+            }
+
+            if (inputs.c_up) {
+                outputs.leftStickX = 128 + (directions.x * 57);
+                outputs.leftStickY = 128 + (directions.y * 86);
             }
 
             if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 62);
-                outputs.leftStickY = 128 + (directions.y * 72);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 93);
             }
         }
     }

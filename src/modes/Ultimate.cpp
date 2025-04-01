@@ -8,7 +8,7 @@
 Ultimate::Ultimate(socd::SocdType socd_type) {
     _socd_pair_count = 5;
     _socd_pairs = new socd::SocdPair[_socd_pair_count]{
-        socd::SocdPair{ &InputState::left,   &InputState::right,   socd_type},
+        socd::SocdPair{&InputState::left,    &InputState::right,   socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up,      socd_type},
         socd::SocdPair{ &InputState::down,   &InputState::up2,     socd_type},
         socd::SocdPair{ &InputState::c_left, &InputState::c_right, socd_type},
@@ -36,13 +36,15 @@ void Ultimate::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
         outputs.dpadLeft = inputs.c_left;
         outputs.dpadRight = inputs.c_right;
     }
-    
+
     // Activate select by holding Mod X
-    if ((inputs.mod_x)) outputs.select = inputs.start;
-
+    if ((inputs.mod_x)) {
+        outputs.select = inputs.start;
+    }
     // Activate home by holding Mod Y
-    if ((inputs.mod_y)) outputs.home = inputs.start;
-
+    if ((inputs.mod_y)) {
+        outputs.home = inputs.start;
+    }
     // Don't override dpad up if it's already pressed using the MX + MY dpad
     // layer.
     outputs.dpadUp = outputs.dpadUp || inputs.midshield;
@@ -107,53 +109,26 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
                 outputs.leftStickX = 128 + (directions.x * 51);
                 outputs.leftStickY = 128 + (directions.y * 30);
             }
-            
-            /* Up B angles */
-            // (39.05) = 53 43
-            if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 53);
-                outputs.leftStickY = 128 + (directions.y * 43);
-            }
-            // (36.35) = 53 39
-            if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 53);
-                outputs.leftStickY = 128 + (directions.y * 39);
-            }
-            // (30.32) = 56 41
-            if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 53);
-                outputs.leftStickY = 128 + (directions.y * 31);
-            }
-            // (27.85) = 49 42
-            if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 53);
-                outputs.leftStickY = 128 + (directions.y * 28);
-            }
 
-            /* Extended Up B Angles */
+            /* Up B angles */
             if (inputs.b) {
-                // (33.29) = 67 44
-                outputs.leftStickX = 128 + (directions.x * 67);
-                outputs.leftStickY = 128 + (directions.y * 44);
-                // (39.38) = 67 55
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 23);
                 if (inputs.c_down) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
-                    outputs.leftStickY = 128 + (directions.y * 55);
+                    outputs.leftStickX = 128 + (directions.x * 75);
+                    outputs.leftStickY = 128 + (directions.y * 31);
                 }
-                // (36.18) = 67 49
                 if (inputs.c_left) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
-                    outputs.leftStickY = 128 + (directions.y * 49);
-                }
-                // (30.2) = 67 39
-                if (inputs.c_up) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
+                    outputs.leftStickX = 128 + (directions.x * 73);
                     outputs.leftStickY = 128 + (directions.y * 39);
                 }
-                // (27.58) = 67 35
+                if (inputs.c_up) {
+                    outputs.leftStickX = 128 + (directions.x * 72);
+                    outputs.leftStickY = 128 + (directions.y * 48);
+                }
                 if (inputs.c_right) {
-                    outputs.leftStickX = 128 + (directions.x * 67);
-                    outputs.leftStickY = 128 + (directions.y * 35);
+                    outputs.leftStickX = 128 + (directions.x * 50);
+                    outputs.leftStickY = 128 + (directions.y * 41);
                 }
             }
         }
@@ -188,57 +163,31 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
             }
         }
 
-        /* Up B angles */
         if (directions.diagonal && !shield_button_pressed) {
             // (56.56) = 35 53
             outputs.leftStickX = 128 + (directions.x * 35);
             outputs.leftStickY = 128 + (directions.y * 53);
-            // (50.95) = 43 53
-            if (inputs.c_down) {
-                outputs.leftStickX = 128 + (directions.x * 43);
-                outputs.leftStickY = 128 + (directions.y * 53);
-            }
-            // (53.65) = 39 53
-            if (inputs.c_left) {
-                outputs.leftStickX = 128 + (directions.x * 49);
-                outputs.leftStickY = 128 + (directions.y * 53);
-            }
-            // (59.68) = 31 53
-            if (inputs.c_up) {
-                outputs.leftStickX = 128 + (directions.x * 31);
-                outputs.leftStickY = 128 + (directions.y * 53);
-            }
-            // (62.15) = 28 53
-            if (inputs.c_right) {
-                outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.leftStickY = 128 + (directions.y * 53);
-            }
 
-            /* Extended Up B Angles */
+            /* Up B Angles */
             if (inputs.b) {
-                // (56.71) = 44 67
-                outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 67);
-                // (50.62) = 55 67
-                if (inputs.c_down) {
-                    outputs.leftStickX = 128 + (directions.x * 55);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
-                // (53.82) = 49 67
-                if (inputs.c_left) {
-                    outputs.leftStickX = 128 + (directions.x * 49);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
-                // (59.8) = 39 67
-                if (inputs.c_up) {
-                    outputs.leftStickX = 128 + (directions.x * 39);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
-                // (62.42) = 35 67
-                if (inputs.c_right) {
-                    outputs.leftStickX = 128 + (directions.x * 35);
-                    outputs.leftStickY = 128 + (directions.y * 67);
-                }
+                outputs.leftStickX = 128 + (directions.x * 23);
+                outputs.leftStickY = 128 + (directions.y * 76);
+            }
+            if (inputs.c_down) {
+                outputs.leftStickX = 128 + (directions.x * 31);
+                outputs.leftStickY = 128 + (directions.y * 75);
+            }
+            if (inputs.c_left) {
+                outputs.leftStickX = 128 + (directions.x * 39);
+                outputs.leftStickY = 128 + (directions.y * 73);
+            }
+            if (inputs.c_up) {
+                outputs.leftStickX = 128 + (directions.x * 48);
+                outputs.leftStickY = 128 + (directions.y * 72);
+            }
+            if (inputs.c_right) {
+                outputs.leftStickX = 128 + (directions.x * 41);
+                outputs.leftStickY = 128 + (directions.y * 50);
             }
 
             // MY Pivot Uptilt/Dtilt
