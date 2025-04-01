@@ -37,13 +37,13 @@ void HDR::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
     }
 
     // Activate select by holding Mod X
-    if ((inputs.mod_x))
+    if ((inputs.mod_x)) {
         outputs.select = inputs.start;
-
+    }
     // Activate home by holding Mod Y
-    if ((inputs.mod_y))
+    if ((inputs.mod_y)) {
         outputs.home = inputs.start;
-
+    }
     // Don't override dpad up if it's already pressed using the MX + MY dpad
     // layer.
     outputs.dpadUp = outputs.dpadUp || inputs.midshield;

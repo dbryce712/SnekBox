@@ -3,7 +3,8 @@
 #include <Adafruit_TinyUSB.h>
 #include <TUCompositeHID.hpp>
 
-uint8_t TUKeyboard::_descriptor[] = { TUD_HID_REPORT_DESC_KEYBOARD(HID_REPORT_ID(_report_id)) };
+const uint8_t TUKeyboard::_descriptor[] = { TUD_HID_REPORT_DESC_KEYBOARD(HID_REPORT_ID(_report_id)
+) };
 
 #define MODIFIER_MASK(mod_kc) (1 << (mod_kc & 0x0F))
 
