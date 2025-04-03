@@ -74,6 +74,7 @@ const Config default_config = {
             .socd_pairs = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
@@ -148,7 +149,7 @@ const Config default_config = {
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_NINTENDO_SWITCH,
-            .default_mode_config = 2,
+            .default_mode_config = 3,
             .activation_binding_count = 1,
             .activation_binding = { BTN_RF2 },
         },
