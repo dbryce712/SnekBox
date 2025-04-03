@@ -20,6 +20,7 @@ GpioButtonMapping button_mappings[] = {
     { BTN_LF2, 3  },
     { BTN_LF3, 4  },
     { BTN_LF4, 5  },
+    { BTN_LF5, 1  },
 
     { BTN_LT1, 6  },
     { BTN_LT2, 7  },
@@ -28,8 +29,8 @@ GpioButtonMapping button_mappings[] = {
     { BTN_MB2, 10 },
     { BTN_MB3, 11 },
 
-    { BTN_RT1, 14 },
-    { BTN_RT2, 15 },
+    { BTN_RT1, 15 },
+    { BTN_RT2, 14 },
     { BTN_RT3, 13 },
     { BTN_RT4, 12 },
     { BTN_RT5, 16 },

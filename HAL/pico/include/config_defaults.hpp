@@ -13,10 +13,10 @@ const Config default_config = {
             .mode_id = MODE_MELEE,
             .socd_pairs_count = 4,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP_NO_REAC },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
             .button_remapping_count = 0,
             .activation_binding_count = 3,
@@ -26,23 +26,55 @@ const Config default_config = {
             .mode_id = MODE_PROJECT_M,
             .socd_pairs_count = 4,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP_NO_REAC },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
             .button_remapping_count = 0,
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF3 },
         },
         GameModeConfig {
+            .mode_id = MODE_PROJECT_M,
+            .socd_pairs_count = 4,
+            .socd_pairs = {
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
+            },
+            .button_remapping_count = 1,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF16 }, // A instead of Up2
+            },
+            .activation_binding_count = 3,
+            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RT1 },
+        },
+        GameModeConfig {
+            .mode_id = MODE_PROJECT_M,
+            .socd_pairs_count = 4,
+            .socd_pairs = {
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
+            },
+            .button_remapping_count = 1,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF15 }, // C45 instead of Up2
+            },
+            .activation_binding_count = 3,
+            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF7 },
+        },
+        GameModeConfig {
             .mode_id = MODE_ULTIMATE,
             .socd_pairs_count = 4,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP },
-                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP },
-                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
             .button_remapping_count = 0,
             .activation_binding_count = 3,
@@ -66,10 +98,10 @@ const Config default_config = {
             .mode_id = MODE_RIVALS_OF_AETHER,
             .socd_pairs_count = 4,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP_NO_REAC },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
             .button_remapping_count = 0,
             .activation_binding_count = 3,
@@ -79,10 +111,10 @@ const Config default_config = {
             .mode_id = MODE_RIVALS_2,
             .socd_pairs_count = 4,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP_NO_REAC },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
             .button_remapping_count = 0,
             .activation_binding_count = 3,
@@ -105,17 +137,17 @@ const Config default_config = {
     .communication_backend_configs = {
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_XINPUT,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_DINPUT,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
             .activation_binding_count = 1,
             .activation_binding = { BTN_RF3 },
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_NINTENDO_SWITCH,
-            .default_mode_config = 3,
+            .default_mode_config = 2,
             .activation_binding_count = 1,
             .activation_binding = { BTN_RF2 },
         },
@@ -181,11 +213,11 @@ const Config default_config = {
     .default_usb_backend_config = 1,
     .melee_options = {
         .crouch_walk_os = false,
-        .disable_ledgedash_socd_override = false,
+        .disable_ledgedash_socd_override = true,
     },
     .project_m_options = {
         .true_z_press = true,
-        .disable_ledgedash_socd_override = false,
+        .disable_ledgedash_socd_override = true,
     },
 };
 

@@ -19,7 +19,7 @@ void ProjectM::HandleSocd(InputState &inputs) {
 }
 
 void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.rt1;
+    outputs.a = inputs.rt1 || inputs.lf16;
     outputs.b = inputs.rf1;
     outputs.x = inputs.rf2;
     outputs.y = inputs.rf6;
@@ -27,7 +27,7 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     if (_options.true_z_press || inputs.lt1) {
         outputs.buttonR = inputs.rf3;
     } else {
-        outputs.a = inputs.rt1 || inputs.rf3;
+        outputs.a = inputs.rt1 || inputs.rf3 || inputs.lf16;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
@@ -60,7 +60,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         inputs.lf3, // Left
         inputs.lf1, // Right
         inputs.lf2, // Down
-        inputs.rf4, // Up
+        inputs.rf4 || inputs.lf5, // Up
         inputs.rt3, // C-Left
         inputs.rt5, // C-Right
         inputs.rt2, // C-Down
@@ -78,6 +78,12 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
         }
+
+        // down + horizontal + B outputs down special
+        if (inputs.rf1 && directions.y == -1) {
+            outputs.leftStickX = 128 + (directions.x * 28);
+            outputs.leftStickY = 128 + (directions.y * 85);
+        }
     }
 
     /* Mod X */
@@ -86,7 +92,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 70);
         }
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 60);
+            outputs.leftStickY = 128 + (directions.y * 61);
         }
 
         if (directions.cx != 0) {
@@ -100,8 +106,8 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickY = 128 + (directions.y * 34);
 
             if (inputs.rf1) {
-                outputs.leftStickX = 128 + (directions.x * 85);
-                outputs.leftStickY = 128 + (directions.y * 31);
+                outputs.leftStickX = 128 + (directions.x * 96);
+                outputs.leftStickY = 128 + (directions.y * 28);
             }
 
             // Airdodge angle
@@ -110,29 +116,35 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                     outputs.leftStickX = 128 + (directions.x * _options.custom_airdodge.x);
                     outputs.leftStickY = 128 + (directions.y * _options.custom_airdodge.y);
                 } else {
-                    outputs.leftStickX = 128 + (directions.x * 82);
-                    outputs.leftStickY = 128 + (directions.y * 35);
+                    outputs.leftStickX = 128 + (directions.x * 96);
+                    outputs.leftStickY = 128 + (directions.y * 28);
                 }
             }
 
-            if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 77);
-                outputs.leftStickY = 128 + (directions.y * 55);
-            }
-
             if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 82);
-                outputs.leftStickY = 128 + (directions.y * 36);
+                outputs.leftStickX = 128 + (directions.x * 99);
+                outputs.leftStickY = 128 + (directions.y * 40);
             }
-
+            
             if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 84);
+                outputs.leftStickX = 128 + (directions.x * 95);
                 outputs.leftStickY = 128 + (directions.y * 50);
             }
 
+            if (inputs.rt4) {
+                outputs.leftStickX = 128 + (directions.x * 86);
+                outputs.leftStickY = 128 + (directions.y * 57);
+            }
+
             if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 72);
-                outputs.leftStickY = 128 + (directions.y * 61);
+                outputs.leftStickX = 128 + (directions.x * 93);
+                outputs.leftStickY = 128 + (directions.y * 76);
+            }
+
+            // snekdash angle
+            if (inputs.lf4 && directions.y == 1) {
+                outputs.leftStickX = 128 + (directions.x * 120);
+                outputs.leftStickY = 128 + (directions.y * 84);
             }
         }
     }
@@ -150,34 +162,34 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
-            if (inputs.rf1) {
-                outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.leftStickY = 128 + (directions.y * 85);
-            }
-
             if (inputs.rf5) {
                 outputs.leftStickX = 128 + (directions.x * 51);
                 outputs.leftStickY = 128 + (directions.y * 82);
             }
 
-            if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 55);
-                outputs.leftStickY = 128 + (directions.y * 77);
+            if (inputs.rf1) {
+                outputs.leftStickX = 128 + (directions.x * 28);
+                outputs.leftStickY = 128 + (directions.y * 96);
             }
-
+            
             if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 34);
-                outputs.leftStickY = 128 + (directions.y * 82);
+                outputs.leftStickX = 128 + (directions.x * 40);
+                outputs.leftStickY = 128 + (directions.y * 99);
+            }
+            
+            if (inputs.rt3) {
+                outputs.leftStickX = 128 + (directions.x * 50);
+                outputs.leftStickY = 128 + (directions.y * 95);
             }
 
-            if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 40);
-                outputs.leftStickY = 128 + (directions.y * 84);
+            if (inputs.rt4) {
+                outputs.leftStickX = 128 + (directions.x * 57);
+                outputs.leftStickY = 128 + (directions.y * 86);
             }
 
             if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 62);
-                outputs.leftStickY = 128 + (directions.y * 72);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 93);
             }
         }
     }
@@ -226,5 +238,11 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     if (inputs.nunchuk_connected) {
         outputs.leftStickX = inputs.nunchuk_x;
         outputs.leftStickY = inputs.nunchuk_y;
+    }
+
+    // Attack stick nair
+    if (inputs.lf15) {
+        outputs.rightStickX = 88;
+        outputs.rightStickY = 88;
     }
 }
