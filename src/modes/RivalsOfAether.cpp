@@ -25,7 +25,8 @@ void RivalsOfAether::UpdateDigitalOutputs(const InputState &inputs, OutputState 
     outputs.start = inputs.mb1;
     outputs.select = inputs.mb3;
     outputs.home = inputs.mb2;
-    outputs.leftStickClick = inputs.rf7;
+    outputs.buttonL = inputs.rf7;
+    outputs.leftStickClick = inputs.lf5;
     outputs.rightStickClick = inputs.rf8;
 
     // Activate D-Pad layer by holding Mod X + Mod Y.
@@ -35,6 +36,11 @@ void RivalsOfAether::UpdateDigitalOutputs(const InputState &inputs, OutputState 
         outputs.dpadLeft = inputs.rt3;
         outputs.dpadRight = inputs.rt5;
     }
+
+    // Activate select by holding Mod X
+    if ((inputs.lt1)) outputs.select = inputs.mb1;
+    // Activate home by holding Mod Y
+    if ((inputs.lt2)) outputs.home = inputs.mb1;
 }
 
 void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs) {
@@ -60,7 +66,7 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
 
     if (inputs.lt1) {
         if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 66);
+            outputs.leftStickX = 128 + (directions.x * 76);
             // MX Horizontal Tilts
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 44);
@@ -68,11 +74,7 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
         }
 
         if(directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 44);
-            // MX Vertical Tilts
-            if (inputs.rt1) {
-                outputs.leftStickY = 128 + (directions.y * 67);
-            }
+            outputs.leftStickY = 128 + (directions.y * 73);
         }
 
         /* Extra DI, Air Dodge, and Up B angles */
@@ -80,64 +82,78 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
             outputs.leftStickX = 128 + (directions.x * 59);
             outputs.leftStickY = 128 + (directions.y * 23);
 
-            // Angles just for DI and Up B
-            if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 49);
-                outputs.leftStickY = 128 + (directions.y * 24);
+            // Angled F-tilts
+            if (inputs.rt1) {
+                outputs.leftStickX = 128 + (directions.x * 69);
+                outputs.leftStickY = 128 + (directions.y * 53);
             }
 
-            // Angles just for DI
+            // Angles just for DI and Up B
+            if (inputs.rf1) {
+                outputs.leftStickX = 128 + (directions.x * 96);
+                outputs.leftStickY = 128 + (directions.y * 28);
+            }
+
+            if (inputs.rt2) {
+                outputs.leftStickX = 128 + (directions.x * 84);
+                outputs.leftStickY = 128 + (directions.y * 34);
+            }
+
             if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 52);
-                outputs.leftStickY = 128 + (directions.y * 31);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 40);
             }
 
             if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 49);
-                outputs.leftStickY = 128 + (directions.y * 35);
+                outputs.leftStickX = 128 + (directions.x * 86);
+                outputs.leftStickY = 128 + (directions.y * 57);
             }
 
             if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 43);
+                outputs.leftStickX = 128 + (directions.x * 82);
+                outputs.leftStickY = 128 + (directions.y * 67);
             }
         }
     }
 
     if (inputs.lt2) {
         if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 44);
+            outputs.leftStickX = 128 + (directions.x * 41);
         }
 
         if(directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 67);
+            outputs.leftStickY = 128 + (directions.y * 78);
         }
 
         /* Extra DI, Air Dodge, and Up B angles */
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 44);
-            outputs.leftStickY = 128 + (directions.y * 113);
+            outputs.leftStickX = 128 + (directions.x * 41);
+            outputs.leftStickY = 128 + (directions.y * 76);
 
             // Angles just for DI and Up B
-            if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 90);
+            if (inputs.rf1) {
+                outputs.leftStickX = 128 + (directions.x * 28);
+                outputs.leftStickY = 128 + (directions.y * 96);
             }
 
-            // Angles just for DI
+            if (inputs.rt2) {
+                outputs.leftStickX = 128 + (directions.x * 34);
+                outputs.leftStickY = 128 + (directions.y * 84);
+            }
+
             if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 44);
-                outputs.leftStickY = 128 + (directions.y * 74);
+                outputs.leftStickX = 128 + (directions.x * 40);
+                outputs.leftStickY = 128 + (directions.y * 76);
             }
 
             if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 45);
-                outputs.leftStickY = 128 + (directions.y * 63);
+                outputs.leftStickX = 128 + (directions.x * 57);
+                outputs.leftStickY = 128 + (directions.y * 86);
             }
 
             if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 47);
-                outputs.leftStickY = 128 + (directions.y * 57);
+                outputs.leftStickX = 128 + (directions.x * 67);
+                outputs.leftStickY = 128 + (directions.y * 82);
             }
         }
     }
@@ -146,11 +162,21 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
     if (inputs.lt1 && inputs.lt2) {
         outputs.rightStickX = 128;
         outputs.rightStickY = 128;
+
+        if (directions.horizontal) {
+            // "perfect" walking speed (matches animation)
+            outputs.leftStickX = 128 + (directions.x * 61);
+        }
     }
 
     // Nunchuk overrides left stick.
     if (inputs.nunchuk_connected) {
         outputs.leftStickX = inputs.nunchuk_x;
         outputs.leftStickY = inputs.nunchuk_y;
+    }
+
+    // Turns off Start when holding Mod X or Mod Y
+    if ((inputs.lt1 || inputs.lt2)) {
+        outputs.start = false;
     }
 }
