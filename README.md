@@ -1,4 +1,45 @@
-# HayBox
+# SnekBox (configurator)
+Forked version of HayBox focused on P+ Lucas
+
+Changes:
+- Added Up2 functionality (BubbleBox, GRAM, etc.)
+- Swapped A and C-stick down buttons
+- Neutral SOCD for all modes
+- Expanded Firefox angle range (now hold B for shallowest/steepest angle)
+- Made ProjectM mode default (true Z press = true)
+  - Added snekdash angles (use mod X + L)
+  - Changed Mod X C-stick angling to enable angled C-stick forward tilts
+  - Left/Right + Down always inputs down special
+  - Mod X crouching (useful on platforms)
+  - True maximum length wavedashes (Mod X)
+- Project M Bidou mode
+  - Mod X + Start + A
+  - Up2 acts as 2<sup>nd</sup> A button
+- Project Nair mode
+  - Mod X + Start + Lightshield for true Z; Mod X + Start + Midshield for L+A macro
+  - Up2 acts as C-stick nair button (attack stick)
+- Added HDR mode (replaces Ultimate mode; now the default when X is held while plugging in)
+  - Added Mod Y + Down shield drops
+  - Set midshield button to D-Pad Up for footstools
+  - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
+  - Changed Mod X C-stick angling to enable angled C-stick forward tilts
+  - Left/Right + Down always inputs down special
+  - Mod X crouching (useful on platforms) 
+  - Added buffered turnaround vertical tilts (Mod Y)
+- Rivals of Aether mode overhauled for Rivals of Aether II
+- Buffed Melee mode (replaces Austin's Rivals2 mode); Mod X + Start + R to activate
+  - Added Mod Y + Down shield drops
+  - Light shield pinpoints 43 instead of 49
+  - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
+  - Changed Mod X and Mod Y wavedash angles to longest and shortest, respectively
+  - Changed slideoff DI C-stick diagonal angles to the most optimal ones
+  - Added buffered turnaround vertical tilts (Mod Y)
+  - Added slight-angled forward tilt/smash angles (Mod X + Mod Y)
+  - Removed turnaround neutral B nerf
+  - Pikachu double up-B angle (Up + Up2 + Mod Y)
+- FGC mode improvements (credit to Skywalker1127)
+
+## Original ReadMe below:
 
 HayBox is a modular, cross-platform firmware for digital or mixed analog/digital controllers, primarily targeted at [B0XX](https://b0xx.com)-style controllers.
 

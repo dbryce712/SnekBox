@@ -24,10 +24,12 @@ const Config default_config = {
         },
        GameModeConfig {
             .mode_id = MODE_PROJECT_M,
-            .socd_pairs_count = 4,
+            .socd_pairs_count = 6,
             .socd_pairs = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RF4, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
@@ -57,7 +59,6 @@ const Config default_config = {
             .socd_pairs = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
@@ -70,9 +71,10 @@ const Config default_config = {
         },
         GameModeConfig {
             .mode_id = MODE_ULTIMATE,
-            .socd_pairs_count = 4,
+            .socd_pairs_count = 6,
             .socd_pairs = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RF4, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
@@ -84,10 +86,15 @@ const Config default_config = {
         },
         GameModeConfig {
             .mode_id = MODE_FGC,
-            .socd_pairs_count = 2,
+            .socd_pairs_count = 7,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },               
+                SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_RT4, .socd_type = SOCD_DIR1_PRIORITY },
+                SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
+                SocdPair { .button_dir1 = BTN_RT4, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LT1, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
             .button_remapping_count = 1,
             .button_remapping = {

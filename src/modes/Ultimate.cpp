@@ -70,10 +70,10 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
     if (inputs.lt1) {
         if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 70);
+            outputs.leftStickX = 128 + (directions.x * 49);
         }
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 61);
+            outputs.leftStickY = 128 + (directions.y * 49);
         }
 
         if (directions.cx != 0) {
@@ -82,8 +82,14 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         }
 
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 70);
-            outputs.leftStickY = 128 + (directions.y * 34);
+            outputs.leftStickX = 128 + (directions.x * 49);
+            outputs.leftStickY = 128 + (directions.y * 28);
+
+            // Angled tilts
+            if (inputs.rt1) {
+                outputs.leftStickX = 128 + (directions.x * 47);
+                outputs.leftStickY = 128 + (directions.y * 43);
+            }
 
             if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 85);
@@ -122,18 +128,17 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 35);
         }
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 70);
+            outputs.leftStickY = 128 + (directions.y * 52);
+
+            // Shield drop
+            if (shield_button_pressed) {
+                outputs.leftStickY = 128 + (directions.y * 53);
+            }
         }
 
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 28);
-            outputs.leftStickY = 128 + (directions.y * 58);
-
-            // MY Pivot Uptilt/Dtilt
-            if (inputs.rt1) {
-                outputs.leftStickX = 128 + (directions.x * 38);
-                outputs.leftStickY = 128 + (directions.y * 69);
-            }
+            outputs.leftStickX = 128 + (directions.x * 38);
+            outputs.leftStickY = 128 + (directions.y * 49);
 
             if (inputs.rf5) {
                 outputs.leftStickX = 128 + (directions.x * 51);
