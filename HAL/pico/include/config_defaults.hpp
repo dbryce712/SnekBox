@@ -7,9 +7,9 @@
 // clang-format off
 
 const Config default_config = {
-    .game_mode_configs_count = 7,
+    .game_mode_configs_count = 8,
     .game_mode_configs = {
-    GameModeConfig {
+        GameModeConfig {
             .mode_id = MODE_MELEE,
             .socd_pairs_count = 4,
             .socd_pairs = {
@@ -22,18 +22,44 @@ const Config default_config = {
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF4 },
         },
-       GameModeConfig {
+        GameModeConfig {
             .mode_id = MODE_PROJECT_M,
             .socd_pairs_count = 4,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP_NO_REAC },
-                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP_NO_REAC },
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP },
             },
-            .button_remapping_count = 0,
+            .button_remapping_count = 4,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_RF6, .activates = BTN_RF4 }, // Up instead of Y
+                ButtonRemap { .physical_button = BTN_RF7, .activates = BTN_RT2 }, // C-Down instead of lightshield
+                ButtonRemap { .physical_button = BTN_RF3, .activates = BTN_RF5 }, // Z activates R
+                ButtonRemap { .physical_button = BTN_RF5, .activates = BTN_RF3 }, // R activates Z
+            },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF3 },
+        },
+        GameModeConfig {
+            .mode_id = MODE_PROJECT_M,
+            .socd_pairs_count = 4,
+            .socd_pairs = {
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP },
+            },
+            .button_remapping_count = 5,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_RF6, .activates = BTN_RF4 }, // Up instead of Y
+                ButtonRemap { .physical_button = BTN_RF7, .activates = BTN_RT2 }, // C-Down instead of lightshield
+                ButtonRemap { .physical_button = BTN_RF3, .activates = BTN_RF5 }, // Z activates R
+                ButtonRemap { .physical_button = BTN_RF5, .activates = BTN_RF3 }, // R activates Z
+                ButtonRemap { .physical_button = BTN_RT1, .activates = BTN_LF16 }, // C-Stick nair instead of A
+            },
+            .activation_binding_count = 3,
+            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RT1 },
         },
         GameModeConfig {
             .mode_id = MODE_ULTIMATE,
@@ -75,7 +101,7 @@ const Config default_config = {
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF1 },
         },
-        GameModeConfig {
+                GameModeConfig {
             .mode_id = MODE_RIVALS_2,
             .socd_pairs_count = 4,
             .socd_pairs = {
@@ -86,7 +112,7 @@ const Config default_config = {
             },
             .button_remapping_count = 0,
             .activation_binding_count = 3,
-            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF5 },
+            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF5 }, // ModX + Start + R
         },
         GameModeConfig {
             .mode_id = MODE_KEYBOARD,
@@ -105,11 +131,11 @@ const Config default_config = {
     .communication_backend_configs = {
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_XINPUT,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_DINPUT,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
             .activation_binding_count = 1,
             .activation_binding = { BTN_RF3 },
         },
@@ -126,7 +152,6 @@ const Config default_config = {
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_N64,
             .default_mode_config = 1,
-            .activation_binding = { BTN_RT3 },
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_NES,
@@ -150,7 +175,7 @@ const Config default_config = {
     .keyboard_modes = {
         KeyboardModeConfig {
             0,
-            22,
+            23,
             {
                 { BTN_LF4, HID_KEY_A },
                 { BTN_LF3, HID_KEY_B },
@@ -174,6 +199,7 @@ const Config default_config = {
                 { BTN_RT5, HID_KEY_T },
                 { BTN_RT1, HID_KEY_U },
                 { BTN_RT2, HID_KEY_V },
+                { BTN_LF5, HID_KEY_W },
             },
         },
     },

@@ -21,8 +21,7 @@ void ProjectM::HandleSocd(InputState &inputs) {
 void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
     outputs.a = inputs.rt1;
     outputs.b = inputs.rf1;
-    outputs.x = inputs.rf2;
-    outputs.y = inputs.rf6;
+    outputs.y = inputs.rf2;
     // True Z press vs macro lightshield + A.
     if (_options.true_z_press || inputs.lt1) {
         outputs.buttonR = inputs.rf3;
@@ -53,6 +52,21 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
         outputs.dpadLeft = true;
     if (inputs.mb2)
         outputs.dpadRight = true;
+
+    if (inputs.lt3) {
+        outputs.y = false;
+        outputs.x = inputs.rf2;
+    }
+
+    // Hidden Buttons for remapp.ing options
+    outputs.leftStickClick = inputs.lf6;
+    outputs.rightStickClick = inputs.lf7;
+    outputs.capture = inputs.lf8;
+    outputs.dpadDown = inputs.lf10;
+    outputs.dpadLeft = inputs.lf11;
+    outputs.dpadRight = inputs.lf12;
+    outputs.select = inputs.mb2;
+    outputs.home = inputs.mb3;
 }
 
 void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs) {
@@ -71,12 +85,18 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf7;
+    bool shield_button_pressed = inputs.lf4 || inputs.rf5;
 
     if (directions.diagonal) {
         if (directions.y == 1) {
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
+        }
+
+        // down + horizontal + B outputs down special
+        if (inputs.rf1 && directions.y == -1) {
+            outputs.leftStickX = 128 + (directions.x * 28);
+            outputs.leftStickY = 128 + (directions.y * 85);
         }
     }
 
@@ -86,7 +106,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 70);
         }
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 60);
+            outputs.leftStickY = 128 + (directions.y * 61);
         }
 
         if (directions.cx != 0) {
@@ -110,8 +130,8 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                     outputs.leftStickX = 128 + (directions.x * _options.custom_airdodge.x);
                     outputs.leftStickY = 128 + (directions.y * _options.custom_airdodge.y);
                 } else {
-                    outputs.leftStickX = 128 + (directions.x * 82);
-                    outputs.leftStickY = 128 + (directions.y * 35);
+                    outputs.leftStickX = 128 + (directions.x * 96);
+                    outputs.leftStickY = 128 + (directions.y * 28);
                 }
             }
 
@@ -182,6 +202,20 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         }
     }
 
+    // snekdash modifier
+    if (inputs.lt3) {
+        if (directions.diagonal) {
+            outputs.leftStickX = 128 + (directions.x * 120);
+            outputs.leftStickY = 128 + (directions.y * 84);
+        }
+    }
+
+    // Attack c-stick nair
+    if (inputs.lf16) {
+        outputs.rightStickX = 88;
+        outputs.rightStickY = 88;
+    }
+
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
     // angled fsmash).
     // We don't apply this for c-up + c-left/c-right in case we want to implement
@@ -199,9 +233,9 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs.leftStickX = 128 + (directions.x * 100);
     }
 
-    if (inputs.rf7) {
+    /* if (inputs.rf7) {
         outputs.triggerRAnalog = 49;
-    }
+    } */
 
     // Send lightshield input if we are using Z = lightshield + A macro.
     if (inputs.rf3 && !(inputs.lt1 || _options.true_z_press)) {
