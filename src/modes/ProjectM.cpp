@@ -1,8 +1,8 @@
 #include "modes/ProjectM.hpp"
 
-#define ANALOG_STICK_MIN 28
+#define ANALOG_STICK_MIN 1
 #define ANALOG_STICK_NEUTRAL 128
-#define ANALOG_STICK_MAX 228
+#define ANALOG_STICK_MAX 255
 
 ProjectM::ProjectM() : ControllerMode() {
     _horizontal_socd = false;
@@ -19,15 +19,15 @@ void ProjectM::HandleSocd(InputState &inputs) {
 }
 
 void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.rt1;
-    outputs.b = inputs.rf1;
-    outputs.x = inputs.rf2;
-    outputs.y = inputs.rf6;
+    outputs.a = inputs.rf1;
+    outputs.b = inputs.rf2;
+    outputs.x = inputs.rt6;
+    outputs.y = inputs.rf3;
     // True Z press vs macro lightshield + A.
     if (_options.true_z_press || inputs.lt1) {
-        outputs.buttonR = inputs.rf3;
+        outputs.buttonR = inputs.rf6;
     } else {
-        outputs.a = inputs.rt1 || inputs.rf3;
+        outputs.a = inputs.rf1 || inputs.rf6;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
@@ -37,22 +37,23 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 
-    // Activate D-Pad layer by holding Mod X + Mod Y or Nunchuk C button.
-    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
-        outputs.dpadUp = inputs.rt4;
-        outputs.dpadDown = inputs.rt2;
-        outputs.dpadLeft = inputs.rt3;
-        outputs.dpadRight = inputs.rt5;
+    // Activate D-Pad layer by holding RF8 or Nunchuk C button.
+    if (inputs.rf8 || inputs.nunchuk_c) {
+        outputs.dpadUp = inputs.lf4;
+        outputs.dpadDown = inputs.lf2;
+        outputs.dpadLeft = inputs.lf3;
+        outputs.dpadRight = inputs.lf1;
     }
 
-    // Don't override dpad up if it's already pressed using the MX + MY dpad
-    // layer.
-    outputs.dpadUp = outputs.dpadUp || inputs.rf8;
-
-    if (inputs.mb3)
-        outputs.dpadLeft = true;
-    if (inputs.mb2)
-        outputs.dpadRight = true;
+    // Hidden Buttons for remapp.ing options
+    outputs.leftStickClick = inputs.lf6;
+    outputs.rightStickClick = inputs.lf7;
+    outputs.capture = inputs.lf8;
+    outputs.dpadDown = inputs.lf10;
+    outputs.dpadLeft = inputs.lf11;
+    outputs.dpadRight = inputs.lf12;
+    outputs.select = inputs.mb2;
+    outputs.home = inputs.mb3;
 }
 
 void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs) {
@@ -60,7 +61,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         inputs.lf3, // Left
         inputs.lf1, // Right
         inputs.lf2, // Down
-        inputs.rf4, // Up
+        inputs.lf4, // Up
         inputs.rt3, // C-Left
         inputs.rt5, // C-Right
         inputs.rt2, // C-Down
@@ -71,115 +72,58 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf7;
+    bool shield_button_pressed = inputs.rf5;
 
-    if (directions.diagonal) {
-        if (directions.y == 1) {
-            outputs.leftStickX = 128 + (directions.x * 83);
-            outputs.leftStickY = 128 + (directions.y * 93);
-        }
-    }
-
-    /* Mod X */
+    /* X1 */
     if (inputs.lt1) {
-        if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 70);
-        }
-        if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 60);
-        }
+        outputs.leftStickX = 128 + (directions.x * 40);
+    }
 
-        if (directions.cx != 0) {
-            outputs.rightStickX = 128 + (directions.cx * 65);
-            outputs.rightStickY = 128 + (directions.y * 23);
+    /* Y1 */
+    if (inputs.lt2) {
+        if (directions.y == 1) {
+            outputs.leftStickY = 128 + (directions.y * 52);
         }
 
-        if (directions.diagonal) {
-            // Default MX Diagonal
-            outputs.leftStickX = 128 + (directions.x * 70);
-            outputs.leftStickY = 128 + (directions.y * 34);
-
-            if (inputs.rf1) {
-                outputs.leftStickX = 128 + (directions.x * 85);
-                outputs.leftStickY = 128 + (directions.y * 31);
-            }
-
-            // Airdodge angle
-            if (inputs.rf5) {
-                if (_options.has_custom_airdodge) {
-                    outputs.leftStickX = 128 + (directions.x * _options.custom_airdodge.x);
-                    outputs.leftStickY = 128 + (directions.y * _options.custom_airdodge.y);
-                } else {
-                    outputs.leftStickX = 128 + (directions.x * 82);
-                    outputs.leftStickY = 128 + (directions.y * 35);
-                }
-            }
-
-            if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 77);
-                outputs.leftStickY = 128 + (directions.y * 55);
-            }
-
-            if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 82);
-                outputs.leftStickY = 128 + (directions.y * 36);
-            }
-
-            if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 84);
-                outputs.leftStickY = 128 + (directions.y * 50);
-            }
-
-            if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 72);
-                outputs.leftStickY = 128 + (directions.y * 61);
-            }
+        if (inputs.rf5) {
+            // Max wavedash
+            outputs.leftStickX = 128 + (directions.x * 120);
+            outputs.leftStickY = 128 + (directions.y * 35);
         }
     }
 
-    /* Mod Y */
-    if (inputs.lt2) {
-        if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 35);
-        }
-        if (directions.vertical) {
+    /* Tilt1 */
+    if (inputs.lt3) {
+        outputs.leftStickX = 128 + (directions.x * 60);
+        outputs.leftStickY = 128 + (directions.y * 63);
+
+        /* if ((inputs.rf4 || inputs.rf5 || inputs.rf7) && directions.vertical) {
+            // Shield drop, fall through platform
             outputs.leftStickY = 128 + (directions.y * 70);
         }
 
-        if (directions.diagonal) {
+        if (inputs.rf1) {
+            // Turnaround vertical tilts
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
+        } */
+    }
 
-            if (inputs.rf1) {
-                outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.leftStickY = 128 + (directions.y * 85);
-            }
+    /* Tilt2 */
+    if (inputs.lt4) {
+        outputs.leftStickX = 128 + (directions.x * 55);
+        outputs.leftStickY = 128 + (directions.y * 69);
 
-            if (inputs.rf5) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 82);
-            }
+        /* if (directions.vertical) {
+            // Crouch on platforms
+            outputs.leftStickY = 128 + (directions.y * 61);
+        } */
 
-            if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 55);
-                outputs.leftStickY = 128 + (directions.y * 77);
-            }
-
-            if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 34);
-                outputs.leftStickY = 128 + (directions.y * 82);
-            }
-
-            if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 40);
-                outputs.leftStickY = 128 + (directions.y * 84);
-            }
-
-            if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 62);
-                outputs.leftStickY = 128 + (directions.y * 72);
-            }
-        }
+        /* if (directions.cx != 0) {
+            // Angled ftilts
+            outputs.rightStickX = 128 + (directions.cx * 65);
+            outputs.rightStickY = 128 + (directions.y * 23);
+        } */
     }
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
@@ -199,13 +143,25 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs.leftStickX = 128 + (directions.x * 100);
     }
 
+    if (inputs.rt1) {
+        /* // Smash pivot slides; inputs.b = outputs.a
+        if (directions.cx != 0 && inputs.b) {
+            outputs.rightStickX = 128 + (directions.cx * 35);
+            outputs.rightStickY = 168;
+        } */
+
+        // Attack stick nairs
+        outputs.rightStickX = 88;
+        outputs.rightStickY = 88;
+    }
+
+
     if (inputs.rf7) {
         outputs.triggerRAnalog = 49;
     }
 
-    // Send lightshield input if we are using Z = lightshield + A macro.
-    if (inputs.rf3 && !(inputs.lt1 || _options.true_z_press)) {
-        outputs.triggerRAnalog = 49;
+    if (inputs.rf4) {
+        outputs.triggerLAnalog = 49;
     }
 
     if (outputs.triggerLDigital) {
@@ -214,12 +170,17 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
     if (outputs.triggerRDigital) {
         outputs.triggerRAnalog = 140;
+        
+        // holding R + analog L -> R + L
+        if (inputs.rf4) {
+            outputs.triggerLAnalog = 140;
+        }
     }
 
-    // Shut off C-stick when using D-Pad layer.
-    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
-        outputs.rightStickX = 128;
-        outputs.rightStickY = 128;
+    // Shut off control stick when using D-Pad layer.
+    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf5) {
+        outputs.leftStickX = 128;
+        outputs.leftStickY = 128;
     }
 
     // Nunchuk overrides left stick.

@@ -1,0 +1,349 @@
+{
+  "gameModeConfigs": [
+    {
+      "modeId": "MODE_MELEE",
+      "socdPairs": [
+        {
+          "buttonDir1": "BTN_LF3",
+          "buttonDir2": "BTN_LF1",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_LF2",
+          "buttonDir2": "BTN_LF4",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT3",
+          "buttonDir2": "BTN_RT5",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT2",
+          "buttonDir2": "BTN_RT4",
+          "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "activationBinding": [
+        "BTN_LT1",
+        "BTN_MB1",
+        "BTN_LF4"
+      ]
+    },
+    {
+      "modeId": "MODE_PROJECT_M",
+      "socdPairs": [
+        {
+          "buttonDir1": "BTN_LF3",
+          "buttonDir2": "BTN_LF1",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_LF2",
+          "buttonDir2": "BTN_LF4",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT3",
+          "buttonDir2": "BTN_RT5",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT2",
+          "buttonDir2": "BTN_RT4",
+          "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "activationBinding": [
+        "BTN_LT1",
+        "BTN_MB1",
+        "BTN_LF3"
+      ]
+    },
+    {
+      "modeId": "MODE_ULTIMATE",
+      "socdPairs": [
+        {
+          "buttonDir1": "BTN_LF3",
+          "buttonDir2": "BTN_LF1",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_LF2",
+          "buttonDir2": "BTN_LF4",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT3",
+          "buttonDir2": "BTN_RT5",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT2",
+          "buttonDir2": "BTN_RT4",
+          "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "activationBinding": [
+        "BTN_LT1",
+        "BTN_MB1",
+        "BTN_LF2"
+      ]
+    },
+    {
+      "modeId": "MODE_FGC",
+      "socdPairs": [
+        {
+          "buttonDir1": "BTN_LF3",
+          "buttonDir2": "BTN_LF1",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_LF2",
+          "buttonDir2": "BTN_LT1",
+          "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "buttonRemapping": [
+        {
+          "physicalButton": "BTN_RT4",
+          "activates": "BTN_LT1"
+        }
+      ],
+      "activationBinding": [
+        "BTN_LT1",
+        "BTN_MB1",
+        "BTN_LF1"
+      ]
+    },
+    {
+      "modeId": "MODE_RIVALS_OF_AETHER",
+      "socdPairs": [
+        {
+          "buttonDir1": "BTN_LF3",
+          "buttonDir2": "BTN_LF1",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_LF2",
+          "buttonDir2": "BTN_LF4",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT3",
+          "buttonDir2": "BTN_RT5",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT2",
+          "buttonDir2": "BTN_RT4",
+          "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "activationBinding": [
+        "BTN_LT1",
+        "BTN_MB1",
+        "BTN_RF1"
+      ]
+    },
+    {
+      "modeId": "MODE_RIVALS_2",
+      "socdPairs": [
+        {
+          "buttonDir1": "BTN_LF3",
+          "buttonDir2": "BTN_LF1",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_LF2",
+          "buttonDir2": "BTN_LF4",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT3",
+          "buttonDir2": "BTN_RT5",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT2",
+          "buttonDir2": "BTN_RT4",
+          "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "activationBinding": [
+        "BTN_LT1",
+        "BTN_MB1",
+        "BTN_RF5"
+      ]
+    },
+    {
+      "modeId": "MODE_KEYBOARD",
+      "socdPairs": [
+        {
+          "buttonDir1": "BTN_LF3",
+          "buttonDir2": "BTN_LF1",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_LT1",
+          "buttonDir2": "BTN_RT4",
+          "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "activationBinding": [
+        "BTN_LT2",
+        "BTN_MB1",
+        "BTN_LF4"
+      ],
+      "keyboardModeConfig": 1
+    }
+  ],
+  "communicationBackendConfigs": [
+    {
+      "backendId": "COMMS_BACKEND_XINPUT",
+      "defaultModeConfig": 2
+    },
+    {
+      "backendId": "COMMS_BACKEND_DINPUT",
+      "defaultModeConfig": 2,
+      "activationBinding": [
+        "BTN_RF3"
+      ]
+    },
+    {
+      "backendId": "COMMS_BACKEND_NINTENDO_SWITCH",
+      "defaultModeConfig": 3,
+      "activationBinding": [
+        "BTN_RF2"
+      ]
+    },
+    {
+      "backendId": "COMMS_BACKEND_GAMECUBE",
+      "defaultModeConfig": 1
+    },
+    {
+      "backendId": "COMMS_BACKEND_N64",
+      "defaultModeConfig": 1
+    },
+    {
+      "backendId": "COMMS_BACKEND_NES",
+      "defaultModeConfig": 1,
+      "activationBinding": [
+        "BTN_LT1"
+      ]
+    },
+    {
+      "backendId": "COMMS_BACKEND_SNES",
+      "defaultModeConfig": 1,
+      "activationBinding": [
+        "BTN_LT2"
+      ]
+    },
+    {
+      "backendId": "COMMS_BACKEND_CONFIGURATOR",
+      "activationBinding": [
+        "BTN_MB1"
+      ]
+    }
+  ],
+  "keyboardModes": [
+    {
+      "buttonsToKeycodes": [
+        {
+          "button": "BTN_LF4",
+          "keycode": 4
+        },
+        {
+          "button": "BTN_LF3",
+          "keycode": 5
+        },
+        {
+          "button": "BTN_LF2",
+          "keycode": 6
+        },
+        {
+          "button": "BTN_LF1",
+          "keycode": 7
+        },
+        {
+          "button": "BTN_LT1",
+          "keycode": 8
+        },
+        {
+          "button": "BTN_LT2",
+          "keycode": 9
+        },
+        {
+          "button": "BTN_MB3",
+          "keycode": 10
+        },
+        {
+          "button": "BTN_MB1",
+          "keycode": 11
+        },
+        {
+          "button": "BTN_MB2",
+          "keycode": 12
+        },
+        {
+          "button": "BTN_RF5",
+          "keycode": 13
+        },
+        {
+          "button": "BTN_RF6",
+          "keycode": 14
+        },
+        {
+          "button": "BTN_RF7",
+          "keycode": 15
+        },
+        {
+          "button": "BTN_RF8",
+          "keycode": 16
+        },
+        {
+          "button": "BTN_RF1",
+          "keycode": 17
+        },
+        {
+          "button": "BTN_RF2",
+          "keycode": 18
+        },
+        {
+          "button": "BTN_RF3",
+          "keycode": 19
+        },
+        {
+          "button": "BTN_RF4",
+          "keycode": 20
+        },
+        {
+          "button": "BTN_RT4",
+          "keycode": 21
+        },
+        {
+          "button": "BTN_RT3",
+          "keycode": 22
+        },
+        {
+          "button": "BTN_RT5",
+          "keycode": 23
+        },
+        {
+          "button": "BTN_RT1",
+          "keycode": 24
+        },
+        {
+          "button": "BTN_RT2",
+          "keycode": 25
+        }
+      ]
+    }
+  ],
+  "defaultBackendConfig": 1,
+  "defaultUsbBackendConfig": 1,
+  "projectMOptions": {
+    "trueZPress": true,
+    "disableLedgedashSocdOverride": true
+  }
+}
