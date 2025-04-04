@@ -37,17 +37,17 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.triggerRDigital = inputs.rf5;
     outputs.start = inputs.mb1;
 
-    // Activate D-Pad layer by holding Mod X + Mod Y or Nunchuk C button.
-    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
+    // Activate D-Pad layer by holding Mod X + Mod Y, Nunchuk C or DP* button.
+    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf14) {
         outputs.dpadUp = inputs.rt4;
         outputs.dpadDown = inputs.rt2;
         outputs.dpadLeft = inputs.rt3;
         outputs.dpadRight = inputs.rt5;
     }
 
-    // Don't override dpad up if it's already pressed using the MX + MY dpad
-    // layer.
+    // Don't override dpad if it's already pressed using the D-Pad layer.
     outputs.dpadUp = outputs.dpadUp || inputs.rf8;
+    outputs.dpadDown = outputs.dpadDown || inputs.rf16;
 
     if (inputs.mb3)
         outputs.dpadLeft = true;
@@ -97,7 +97,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
         if (directions.cx != 0) {
             outputs.rightStickX = 128 + (directions.cx * 65);
-            outputs.rightStickY = 128 + (directions.y * 23);
+            outputs.rightStickY = 128 + (directions.y * 44);
         }
 
         if (directions.diagonal) {
@@ -229,7 +229,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
     // Shut off C-stick when using D-Pad layer.
-    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
+    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf14) {
         outputs.rightStickX = 128;
         outputs.rightStickY = 128;
     }

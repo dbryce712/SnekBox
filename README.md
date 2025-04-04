@@ -12,15 +12,18 @@ Changes:
   - Left/Right + Down always inputs down special
   - Mod X crouching (useful on platforms)
   - True maximum length wavedashes (Mod X)
-- Project M Bidou mode
-  - Mod X + Start + A
-  - Up2 acts as 2<sup>nd</sup> A button
-- Project Nair mode
-  - Mod X + Start + Lightshield for true Z; Mod X + Start + Midshield for L+A macro
-  - Up2 acts as C-stick nair button (attack stick)
+  - Project M Bidou mode
+    - Mod X + Start + A
+    - Up2 acts as 2<sup>nd</sup> A button
+  - Project Nair mode
+    - Mod X + Start + RF7
+    - Up2 acts as C-stick nair button (attack stick)
+- D-Pad Modifier mode
+  - Mod X + Start + RF8
+  - Up2 replaced with D-Pad modifier; hold it down to replace C-stick with D-Pad
 - Added HDR mode (replaces Ultimate mode; now the default when X is held while plugging in)
   - Added Mod Y + Down shield drops
-  - Set midshield button to D-Pad Up for footstools
+  - Set RF8 button to D-Pad Up for footstools
   - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
   - Left/Right + Down always inputs down special
@@ -37,7 +40,7 @@ Changes:
   - Added slight-angled forward tilt/smash angles (Mod X + Mod Y)
   - Removed turnaround neutral B nerf
   - Pikachu double up-B angle (Up + Up2 + Mod Y)
-- FGC mode improvements (credit to Skywalker1127)
+- FGC mode overhaul (credit to Skywalker1127)
 
 ## Original ReadMe below:
 
