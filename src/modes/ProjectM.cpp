@@ -72,7 +72,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.rf5;
+    bool shield_button_pressed = inputs.rf4 || inputs.rf5 || inputs.rf7;
 
     /* X1 */
     if (inputs.lt1) {
@@ -96,34 +96,12 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     if (inputs.lt3) {
         outputs.leftStickX = 128 + (directions.x * 60);
         outputs.leftStickY = 128 + (directions.y * 63);
-
-        /* if ((inputs.rf4 || inputs.rf5 || inputs.rf7) && directions.vertical) {
-            // Shield drop, fall through platform
-            outputs.leftStickY = 128 + (directions.y * 70);
-        }
-
-        if (inputs.rf1) {
-            // Turnaround vertical tilts
-            outputs.leftStickX = 128 + (directions.x * 28);
-            outputs.leftStickY = 128 + (directions.y * 58);
-        } */
     }
 
     /* Tilt2 */
     if (inputs.lt4) {
         outputs.leftStickX = 128 + (directions.x * 55);
         outputs.leftStickY = 128 + (directions.y * 69);
-
-        /* if (directions.vertical) {
-            // Crouch on platforms
-            outputs.leftStickY = 128 + (directions.y * 61);
-        } */
-
-        /* if (directions.cx != 0) {
-            // Angled ftilts
-            outputs.rightStickX = 128 + (directions.cx * 65);
-            outputs.rightStickY = 128 + (directions.y * 23);
-        } */
     }
 
     // C-stick ASDI Slideoff angle overrides any other C-stick modifiers (such as
@@ -143,14 +121,8 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs.leftStickX = 128 + (directions.x * 100);
     }
 
+    // Attack stick nairs
     if (inputs.rt1) {
-        /* // Smash pivot slides; inputs.b = outputs.a
-        if (directions.cx != 0 && inputs.b) {
-            outputs.rightStickX = 128 + (directions.cx * 35);
-            outputs.rightStickY = 168;
-        } */
-
-        // Attack stick nairs
         outputs.rightStickX = 88;
         outputs.rightStickY = 88;
     }
