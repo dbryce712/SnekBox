@@ -150,7 +150,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     }
 
     // Shut off control stick when using D-Pad layer.
-    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf5) {
+    if (inputs.rf8 || inputs.nunchuk_c) {
         outputs.leftStickX = 128;
         outputs.leftStickY = 128;
     }
