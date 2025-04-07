@@ -71,7 +71,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf7;
+    bool shield_button_pressed = inputs.lf4 || inputs.rf5 || inputs.rf7;
 
     if (directions.diagonal) {
         // DACUS
