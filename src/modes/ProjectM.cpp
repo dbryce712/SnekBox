@@ -74,7 +74,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     bool shield_button_pressed = inputs.lf4 || inputs.rf5 || inputs.rf7;
 
     if (directions.diagonal) {
-        // DACUS
+        // Up/Down smash without letting go of forward
         if (inputs.rf3 || inputs.rt1 || inputs.lf16) {
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
