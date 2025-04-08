@@ -41,7 +41,7 @@ void Rivals2::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs
         inputs.lf3,
         inputs.lf1,
         inputs.lf2,
-        inputs.rf4 || inputs.lf5,
+        inputs.rf4,
         inputs.rt3,
         inputs.rt5,
         inputs.rt2,
@@ -149,12 +149,6 @@ void Rivals2::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs
             if (shield_button_pressed) {
                 outputs.leftStickY = 128 + (directions.y * 55);
             }
-            
-            // Pikachu/Pichu double up-special
-            if (inputs.rf4 && inputs.lf5 && inputs.rf1) {
-                outputs.leftStickY = 128 - (directions.y * 40);
-            }
-
         }
         if (directions.diagonal && shield_button_pressed) {
             // MY + L, R, LS, and MS + q1/2 = 4750 8750 = 38 70
@@ -256,6 +250,11 @@ void Rivals2::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs
             // 9500 2875 = 76 23
             outputs.leftStickX = 128 + (directions.x * 76);
             outputs.leftStickY = 128 + (directions.y * 23);
+        }
+
+        // Pikachu/Pichu double up-special
+        if (inputs.rf1 && inputs.rf4) {
+            outputs.leftStickY = 128 - (directions.y * 40);
         }
     }
 

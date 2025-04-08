@@ -39,18 +39,8 @@
           "socdType": "SOCD_NEUTRAL"
         },
         {
-          "buttonDir1": "BTN_RF4",
-          "buttonDir2": "BTN_LF5",
-          "socdType": "SOCD_DIR1_PRIORITY"
-        },
-        {
           "buttonDir1": "BTN_LF2",
           "buttonDir2": "BTN_RF4",
-          "socdType": "SOCD_NEUTRAL"
-        },
-        {
-          "buttonDir1": "BTN_LF2",
-          "buttonDir2": "BTN_LF5",
           "socdType": "SOCD_NEUTRAL"
         },
         {
@@ -62,6 +52,12 @@
           "buttonDir1": "BTN_RT2",
           "buttonDir2": "BTN_RT4",
           "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "buttonRemapping": [
+        {
+          "physicalButton": "BTN_LF5",
+          "activates": "BTN_RF4"
         }
       ],
       "activationBinding": [
@@ -79,18 +75,8 @@
           "socdType": "SOCD_NEUTRAL"
         },
         {
-          "buttonDir1": "BTN_RF4",
-          "buttonDir2": "BTN_LF5",
-          "socdType": "SOCD_DIR1_PRIORITY"
-        },
-        {
           "buttonDir1": "BTN_LF2",
           "buttonDir2": "BTN_RF4",
-          "socdType": "SOCD_NEUTRAL"
-        },
-        {
-          "buttonDir1": "BTN_LF2",
-          "buttonDir2": "BTN_LF5",
           "socdType": "SOCD_NEUTRAL"
         },
         {
@@ -102,6 +88,12 @@
           "buttonDir1": "BTN_RT2",
           "buttonDir2": "BTN_RT4",
           "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "buttonRemapping": [
+        {
+          "physicalButton": "BTN_LF5",
+          "activates": "BTN_RF4"
         }
       ],
       "activationBinding": [
@@ -137,7 +129,7 @@
       "buttonRemapping": [
         {
           "physicalButton": "BTN_LF5",
-          "activates": "BTN_LF16"
+          "activates": "BTN_RT1"
         }
       ],
       "activationBinding": [
@@ -236,23 +228,18 @@
           "socdType": "SOCD_DIR1_PRIORITY"
         },
         {
-          "buttonDir1": "BTN_LT1",
-          "buttonDir2": "BTN_LF5",
-          "socdType": "SOCD_DIR1_PRIORITY"
-        },
-        {
-          "buttonDir1": "BTN_RT4",
-          "buttonDir2": "BTN_LF5",
-          "socdType": "SOCD_DIR1_PRIORITY"
-        },
-        {
           "buttonDir1": "BTN_LF2",
           "buttonDir2": "BTN_LT1",
           "socdType": "SOCD_NEUTRAL"
         },
         {
-          "buttonDir1": "BTN_LF2",
-          "buttonDir2": "BTN_LF5",
+          "buttonDir1": "BTN_RT3",
+          "buttonDir2": "BTN_RT5",
+          "socdType": "SOCD_NEUTRAL"
+        },
+        {
+          "buttonDir1": "BTN_RT2",
+          "buttonDir2": "BTN_RT4",
           "socdType": "SOCD_NEUTRAL"
         },
         {
@@ -263,7 +250,7 @@
       ],
       "buttonRemapping": [
         {
-          "physicalButton": "BTN_RT4",
+          "physicalButton": "BTN_LF5",
           "activates": "BTN_LT1"
         }
       ],
@@ -312,18 +299,8 @@
           "socdType": "SOCD_NEUTRAL"
         },
         {
-          "buttonDir1": "BTN_RF4",
-          "buttonDir2": "BTN_LF5",
-          "socdType": "SOCD_DIR1_PRIORITY"
-        },
-        {
           "buttonDir1": "BTN_LF2",
           "buttonDir2": "BTN_RF4",
-          "socdType": "SOCD_NEUTRAL"
-        },
-        {
-          "buttonDir1": "BTN_LF2",
-          "buttonDir2": "BTN_LF5",
           "socdType": "SOCD_NEUTRAL"
         },
         {
@@ -335,6 +312,12 @@
           "buttonDir1": "BTN_RT2",
           "buttonDir2": "BTN_RT4",
           "socdType": "SOCD_NEUTRAL"
+        }
+      ],
+      "buttonRemapping": [
+        {
+          "physicalButton": "BTN_LF5",
+          "activates": "BTN_RF4"
         }
       ],
       "activationBinding": [

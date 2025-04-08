@@ -11,10 +11,10 @@ void FgcMode::UpdateDigitalOutputs(const InputState &inputs, OutputState &output
     outputs.dpadLeft = inputs.lf3;
     outputs.dpadRight = inputs.lf1;
     outputs.dpadDown = inputs.lf2;
-    outputs.dpadUp = inputs.lt1 || inputs.lf5 || inputs.rt4;
+    outputs.dpadUp = inputs.lt1 || inputs.rt4;
 
     // L3 & R3
-    outputs.leftStickClick = inputs.lt4 || inputs.rt3; 
+    outputs.leftStickClick = inputs.rt3; 
     outputs.rightStickClick = inputs.rt2;                       
 
     // Menu keys
@@ -68,7 +68,7 @@ void FgcMode::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs
     inputs.lf3,
     inputs.lf1,
     inputs.lf2,
-    inputs.lf5,
+    inputs.lt1,
     inputs.rt3,
     inputs.rt5,
     inputs.rt2,

@@ -24,31 +24,33 @@ const Config default_config = {
         },
        GameModeConfig {
             .mode_id = MODE_PROJECT_M,
-            .socd_pairs_count = 6,
+            .socd_pairs_count = 4,
             .socd_pairs = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
-                SocdPair { .button_dir1 = BTN_RF4, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
-            .button_remapping_count = 0,
+            .button_remapping_count = 1,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RF4 }, // LF5 activates Up
+            },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF3 },
         },
         GameModeConfig {
             .mode_id = MODE_ULTIMATE,
-            .socd_pairs_count = 6,
+            .socd_pairs_count = 4,
             .socd_pairs = {
                 SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
-                SocdPair { .button_dir1 = BTN_RF4, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RF4, .socd_type = SOCD_NEUTRAL },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
-            .button_remapping_count = 0,
+            .button_remapping_count = 1,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RF4 }, // LF5 activates Up
+            },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF2 },
         },
@@ -63,7 +65,7 @@ const Config default_config = {
             },
             .button_remapping_count = 1,
             .button_remapping = {
-                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF16 }, // A instead of Up2
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RT1 }, // LF5 activates A
             },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_RT1 },
@@ -79,7 +81,7 @@ const Config default_config = {
             },
             .button_remapping_count = 1,
             .button_remapping = {
-                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF15 }, // C45 instead of Up2
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF15 }, // LF5 activates C45
             },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF7 },
@@ -95,7 +97,7 @@ const Config default_config = {
             },
             .button_remapping_count = 2,
             .button_remapping = {
-                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF14 }, // DP* instead of Up2
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF14 }, // LF5 activates DP*
                 ButtonRemap { .physical_button = BTN_RF8, .activates = BTN_RF16 }, // D-Pad Down instead of D-Pad Up
             },
             .activation_binding_count = 3,
@@ -103,19 +105,19 @@ const Config default_config = {
         },
         GameModeConfig {
             .mode_id = MODE_FGC,
-            .socd_pairs_count = 7,
+            .socd_pairs_count = 6,
             .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },               
+                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_RT4, .socd_type = SOCD_DIR1_PRIORITY },
-                SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
-                SocdPair { .button_dir1 = BTN_RT4, .button_dir2 = BTN_LF5, .socd_type = SOCD_DIR1_PRIORITY },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LT1, .socd_type = SOCD_NEUTRAL },
-                SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_LF5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
+                SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_LF2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
+
             },
             .button_remapping_count = 1,
             .button_remapping = {
-                ButtonRemap { .physical_button = BTN_RT4, .activates = BTN_LT1 },
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LT1 },
             },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF1 },
@@ -142,7 +144,10 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
-            .button_remapping_count = 0,
+            .button_remapping_count = 1,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RF4 }, // LF5 activates Up
+            },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF5 },
         },

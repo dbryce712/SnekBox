@@ -39,7 +39,7 @@ Changes:
   - Added buffered turnaround vertical tilts (Mod Y)
   - Added slight-angled forward tilt/smash angles (Mod X + Mod Y)
   - Removed turnaround neutral B nerf
-  - Pikachu double up-B angle (Up + Up2 + Mod Y)
+  - Pikachu double up-B angle (Mod X + Mod Y + Up)
 - FGC mode overhaul (credit to Skywalker1127)
 
 ## Original ReadMe below:

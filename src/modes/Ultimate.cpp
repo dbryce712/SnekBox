@@ -39,6 +39,14 @@ void Ultimate::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     // Don't override dpad up if it's already pressed using the MX + MY dpad
     // layer.
     outputs.dpadUp = outputs.dpadUp || inputs.rf8;
+
+    // D-Pad Neutral SOCD
+    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c) {
+        if (inputs.rt2 && inputs.rf8) {
+            outputs.dpadUp = false;
+            outputs.dpadDown = false;
+        }
+    }
 }
 
 void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs) {
@@ -47,7 +55,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         inputs.lf3,
         inputs.lf1,
         inputs.lf2,
-        inputs.rf4 || inputs.lf5,
+        inputs.rf4,
         inputs.rt3,
         inputs.rt5,
         inputs.rt2,

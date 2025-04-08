@@ -19,7 +19,7 @@ void ProjectM::HandleSocd(InputState &inputs) {
 }
 
 void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outputs) {
-    outputs.a = inputs.rt1 || inputs.lf16;
+    outputs.a = inputs.rt1;
     outputs.b = inputs.rf1;
     outputs.x = inputs.rf2;
     outputs.y = inputs.rf6;
@@ -27,7 +27,7 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     if (_options.true_z_press || inputs.lt1) {
         outputs.buttonR = inputs.rf3;
     } else {
-        outputs.a = inputs.rt1 || inputs.rf3 || inputs.lf16;
+        outputs.a = inputs.rt1 || inputs.rf3;
     }
     if (inputs.nunchuk_connected) {
         outputs.triggerLDigital = inputs.nunchuk_z;
@@ -49,6 +49,15 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.dpadUp = outputs.dpadUp || inputs.rf8;
     outputs.dpadDown = outputs.dpadDown || inputs.rf16;
 
+    // D-Pad Neutral SOCD
+    if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf14) {
+        if ((inputs.rt2 && inputs.rf8) || (inputs.rt4 && inputs.rf16)) {
+            outputs.dpadUp = false;
+            outputs.dpadDown = false;
+        }
+    }
+    
+
     if (inputs.mb3)
         outputs.dpadLeft = true;
     if (inputs.mb2)
@@ -60,7 +69,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         inputs.lf3, // Left
         inputs.lf1, // Right
         inputs.lf2, // Down
-        inputs.rf4 || inputs.lf5, // Up
+        inputs.rf4, // Up
         inputs.rt3, // C-Left
         inputs.rt5, // C-Right
         inputs.rt2, // C-Down
@@ -74,8 +83,8 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     bool shield_button_pressed = inputs.lf4 || inputs.rf5 || inputs.rf7;
 
     if (directions.diagonal) {
-        // Up/Down smash without letting go of forward
-        if (inputs.rf3 || inputs.rt1 || inputs.lf16) {
+        // Up smash without letting go of forward
+        if ((inputs.rf3 || inputs.rt1) && directions.y == 1) {
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
         }
