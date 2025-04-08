@@ -75,17 +75,17 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
     bool shield_button_pressed = inputs.rf4 || inputs.rf5 || inputs.rf7;
 
     if (directions.diagonal) {
-        // Up/Down smash without letting go of forward
-        if (inputs.rf1/*  || inputs.rf6 */) {
+        // Up smash without letting go of forward
+        if (inputs.rf1 && directions.y == 1) {
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
         }
 
-        // 45 + B outputs vertical special when grounded
+        /* // 45 + B outputs vertical special when grounded
         if (inputs.rf2) {
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 85);
-        }
+        } */
     }
 
     /* X1 */
