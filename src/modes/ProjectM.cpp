@@ -89,7 +89,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
     if (directions.diagonal) {
         // Up/Down smash without letting go of forward
-        if (inputs.rt1 || inputs.rf3) {
+        if ((inputs.rt1 || inputs.rf3) && directions.y == 1) {
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
         }
