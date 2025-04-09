@@ -164,12 +164,22 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 35);
         }
         if (directions.vertical) {
-            outputs.leftStickY = 128 + (directions.y * 70);
+            outputs.leftStickY = 128 + (directions.y * 67);
+
+            // (Shield) drop through platforms
+            if (directions.y == -1) {
+                outputs.leftStickY = 128 + (directions.y * 69);
+            }
         }
 
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
+
+            if (directions.y == -1) {
+                outputs.leftStickX = 128 + (directions.x * 28);
+                outputs.leftStickY = 128 + (directions.y * 69);
+            }
 
             if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 28);
