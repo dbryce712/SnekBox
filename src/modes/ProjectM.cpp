@@ -94,10 +94,10 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickY = 128 + (directions.y * 93);
         }
 
-        // Bottom 45° notch + B outputs down special
-        if (inputs.rf1 && directions.y == -1) {
-            outputs.leftStickX = 128 + (directions.x * 28);
-            outputs.leftStickY = 128 + (directions.y * 85);
+        // 45° notch + B outputs vertical special when grounded
+        if (inputs.rf1) {
+            outputs.leftStickX = 128 + (directions.x * 57);
+            outputs.leftStickY = 128 + (directions.y * 57);
         }
     }
 
