@@ -80,12 +80,6 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 83);
             outputs.leftStickY = 128 + (directions.y * 93);
         }
-
-        /* // 45 + B outputs vertical special when grounded
-        if (inputs.rf2) {
-            outputs.leftStickX = 128 + (directions.x * 28);
-            outputs.leftStickY = 128 + (directions.y * 85);
-        } */
     }
 
     /* X1 */
