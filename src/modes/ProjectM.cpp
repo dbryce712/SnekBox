@@ -176,7 +176,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
-            if (shield_button_pressed) {
+            if (shield_button_pressed && directions.y == -1) {
                 outputs.leftStickX = 128 + (directions.x * 28);
                 outputs.leftStickY = 128 + (directions.y * 69);
             }
