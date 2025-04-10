@@ -177,14 +177,9 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
-            if (shield_button_pressed && directions.y == -1) {
-                outputs.leftStickX = 128 + (directions.x * 28);
+            if (shield_button_pressed) {
+                outputs.leftStickX = 128 + (directions.x * 43);
                 outputs.leftStickY = 128 + (directions.y * 69);
-            }
-
-            if (inputs.rf5) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 82);
             }
 
             if (inputs.rf1) {
