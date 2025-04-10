@@ -101,10 +101,13 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 70);
         }
+
+        // Crouch on platforms
         if (directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 61);
         }
 
+        // Angled tilt stick
         if (directions.cx != 0) {
             outputs.rightStickX = 128 + (directions.cx * 65);
             outputs.rightStickY = 128 + (directions.y * 44);
@@ -115,11 +118,6 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 70);
             outputs.leftStickY = 128 + (directions.y * 34);
 
-            if (inputs.rf1) {
-                outputs.leftStickX = 128 + (directions.x * 96);
-                outputs.leftStickY = 128 + (directions.y * 28);
-            }
-
             // Airdodge angle
             if (inputs.rf5) {
                 if (_options.has_custom_airdodge) {
@@ -129,6 +127,18 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                     outputs.leftStickX = 128 + (directions.x * 96);
                     outputs.leftStickY = 128 + (directions.y * 28);
                 }
+            }
+
+            // snekdash angle
+            if (inputs.lf4 && directions.y == 1) {
+                outputs.leftStickX = 128 + (directions.x * 120);
+                outputs.leftStickY = 128 + (directions.y * 84);
+            }
+
+            // Firefox angles
+            if (inputs.rf1) {
+                outputs.leftStickX = 128 + (directions.x * 96);
+                outputs.leftStickY = 128 + (directions.y * 28);
             }
 
             if (inputs.rt2) {
@@ -150,12 +160,6 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickX = 128 + (directions.x * 93);
                 outputs.leftStickY = 128 + (directions.y * 76);
             }
-
-            // snekdash angle
-            if (inputs.lf4 && directions.y == 1) {
-                outputs.leftStickX = 128 + (directions.x * 120);
-                outputs.leftStickY = 128 + (directions.y * 84);
-            }
         }
     }
 
@@ -164,6 +168,8 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 35);
         }
+
+        // No tap jump
         if (directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 67);
 
@@ -177,11 +183,13 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
-            if (shield_button_pressed) {
-                outputs.leftStickX = 128 + (directions.x * 43);
-                outputs.leftStickY = 128 + (directions.y * 69);
+            // Diagonal shield drop, wavedash
+            if (shield_button_pressed && directions.y == -1) {
+                outputs.leftStickX = 128 + (directions.x * 45);
+                outputs.leftStickY = 128 + (directions.y * 72);
             }
 
+            // Firefox angles
             if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 28);
                 outputs.leftStickY = 128 + (directions.y * 96);
