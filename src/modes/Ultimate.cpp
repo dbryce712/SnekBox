@@ -148,6 +148,12 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 38);
             outputs.leftStickY = 128 + (directions.y * 49);
 
+            // Shield drop
+            if (shield_button_pressed && directions.y == -1) {
+                outputs.leftStickX = 128 + (directions.x * 38);
+                outputs.leftStickY = 128 + (directions.y * 53);
+            }
+
             if (inputs.rf5) {
                 outputs.leftStickX = 128 + (directions.x * 51);
                 outputs.leftStickY = 128 + (directions.y * 82);

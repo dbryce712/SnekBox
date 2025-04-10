@@ -155,17 +155,19 @@ void Rivals2::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs
             outputs.leftStickX = 128 + (directions.x * 38);
             outputs.leftStickY = 128 + (directions.y * 70);
             // MY + L, R, LS, and MS + q3/4 = 5000 8500 = 40 68
+
             // Parasol dash
             if (directions.y == 1 && (inputs.rf2 || inputs.rf6)) {
                 outputs.leftStickX = 128 + (directions.x * 40);
                 outputs.leftStickY = 128 + (directions.y * 68);
             }
-            // steepest wavedash
+
+            /* // steepest wavedash
             if (directions.y == -1) {
                 // 2875 9500 = 23 76
                 outputs.leftStickX = 128 + (directions.x * 23);
                 outputs.leftStickY = 128 + (directions.y * 76);
-            }
+            } */
         }
 
 
