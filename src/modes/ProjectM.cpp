@@ -120,11 +120,6 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 70);
             outputs.leftStickY = 128 + (directions.y * 34);
 
-            if (inputs.rf1) {
-                outputs.leftStickX = 128 + (directions.x * 85);
-                outputs.leftStickY = 128 + (directions.y * 31);
-            }
-
             // Airdodge angle
             if (inputs.rf5) {
                 if (_options.has_custom_airdodge) {
@@ -136,24 +131,30 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 }
             }
 
-            if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 77);
-                outputs.leftStickY = 128 + (directions.y * 55);
+            // MX Firefox angles
+            if (inputs.rf1) {
+                outputs.leftStickX = 128 + (directions.x * 96);
+                outputs.leftStickY = 128 + (directions.y * 28);
             }
 
             if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 82);
-                outputs.leftStickY = 128 + (directions.y * 36);
+                outputs.leftStickX = 128 + (directions.x * 99);
+                outputs.leftStickY = 128 + (directions.y * 40);
             }
-
+            
             if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 84);
+                outputs.leftStickX = 128 + (directions.x * 95);
                 outputs.leftStickY = 128 + (directions.y * 50);
             }
 
+            if (inputs.rt4) {
+                outputs.leftStickX = 128 + (directions.x * 86);
+                outputs.leftStickY = 128 + (directions.y * 57);
+            }
+
             if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 72);
-                outputs.leftStickY = 128 + (directions.y * 61);
+                outputs.leftStickX = 128 + (directions.x * 93);
+                outputs.leftStickY = 128 + (directions.y * 76);
             }
         }
     }
@@ -176,34 +177,36 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 58);
 
-            if (shield_button_pressed) {
-                outputs.leftStickX = 128 + (directions.x * 43);
-                outputs.leftStickY = 128 + (directions.y * 69);
+            // Diagonal shield drop, wavedash
+            if (shield_button_pressed && directions.y == -1) {
+                outputs.leftStickX = 128 + (directions.x * 45);
+                outputs.leftStickY = 128 + (directions.y * 72);
             }
 
+            // MY Firefox angles
             if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 28);
-                outputs.leftStickY = 128 + (directions.y * 85);
+                outputs.leftStickY = 128 + (directions.y * 96);
+            }
+            
+            if (inputs.rt2) {
+                outputs.leftStickX = 128 + (directions.x * 40);
+                outputs.leftStickY = 128 + (directions.y * 99);
+            }
+            
+            if (inputs.rt3) {
+                outputs.leftStickX = 128 + (directions.x * 50);
+                outputs.leftStickY = 128 + (directions.y * 95);
             }
 
             if (inputs.rt4) {
-                outputs.leftStickX = 128 + (directions.x * 55);
-                outputs.leftStickY = 128 + (directions.y * 77);
-            }
-
-            if (inputs.rt2) {
-                outputs.leftStickX = 128 + (directions.x * 34);
-                outputs.leftStickY = 128 + (directions.y * 82);
-            }
-
-            if (inputs.rt3) {
-                outputs.leftStickX = 128 + (directions.x * 40);
-                outputs.leftStickY = 128 + (directions.y * 84);
+                outputs.leftStickX = 128 + (directions.x * 57);
+                outputs.leftStickY = 128 + (directions.y * 86);
             }
 
             if (inputs.rt5) {
-                outputs.leftStickX = 128 + (directions.x * 62);
-                outputs.leftStickY = 128 + (directions.y * 72);
+                outputs.leftStickX = 128 + (directions.x * 76);
+                outputs.leftStickY = 128 + (directions.y * 93);
             }
         }
     }
