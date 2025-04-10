@@ -152,8 +152,8 @@ void Rivals2::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs
         }
         if (directions.diagonal && shield_button_pressed) {
             // MY + L, R, LS, and MS + q1/2 = 4750 8750 = 38 70
-            outputs.leftStickX = 128 + (directions.x * 38);
-            outputs.leftStickY = 128 + (directions.y * 70);
+            outputs.leftStickX = 128 + (directions.x * 30);
+            outputs.leftStickY = 128 + (directions.y * 55);
             // MY + L, R, LS, and MS + q3/4 = 5000 8500 = 40 68
 
             // Parasol dash
