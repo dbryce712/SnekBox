@@ -129,13 +129,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 }
             }
 
-            // snekdash angle
-            if (inputs.lf4 && directions.y == 1) {
-                outputs.leftStickX = 128 + (directions.x * 120);
-                outputs.leftStickY = 128 + (directions.y * 84);
-            }
-
-            // Firefox angles
+            // MX Firefox angles
             if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 96);
                 outputs.leftStickY = 128 + (directions.y * 28);
@@ -159,6 +153,12 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             if (inputs.rt5) {
                 outputs.leftStickX = 128 + (directions.x * 93);
                 outputs.leftStickY = 128 + (directions.y * 76);
+            }
+
+            // snekdash angle
+            if (inputs.lf4 && directions.y == 1) {
+                outputs.leftStickX = 128 + (directions.x * 90);
+                outputs.leftStickY = 128 + (directions.y * 63);
             }
         }
     }
@@ -189,7 +189,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickY = 128 + (directions.y * 72);
             }
 
-            // Firefox angles
+            // MY Firefox angles
             if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 28);
                 outputs.leftStickY = 128 + (directions.y * 96);
