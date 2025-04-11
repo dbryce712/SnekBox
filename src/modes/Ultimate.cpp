@@ -66,7 +66,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf5;
+    bool shield_button_pressed = inputs.lf4 || inputs.rf5 || inputs.rf7;
 
     if (directions.diagonal) {
         // down + horizontal + B outputs down special
@@ -91,17 +91,12 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 49);
-            outputs.leftStickY = 128 + (directions.y * 28);
+            outputs.leftStickY = 128 + (directions.y * 32);
 
             // Angled tilts
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 47);
                 outputs.leftStickY = 128 + (directions.y * 43);
-            }
-
-            if (shield_button_pressed) {
-                outputs.leftStickX = 128 + (directions.x * 60);
-                outputs.leftStickY = 128 + (directions.y * 35);
             }
 
             // MX Firefox angles
@@ -151,7 +146,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
             // Shield drop
             if (shield_button_pressed && directions.y == -1) {
-                outputs.leftStickX = 128 + (directions.x * 33);
+                outputs.leftStickX = 128 + (directions.x * 36);
                 outputs.leftStickY = 128 + (directions.y * 53);
             }
 
