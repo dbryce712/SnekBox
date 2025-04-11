@@ -99,12 +99,13 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickY = 128 + (directions.y * 43);
             }
 
-            if (inputs.rf1) {
-                outputs.leftStickX = 128 + (directions.x * 85);
-                outputs.leftStickY = 128 + (directions.y * 31);
+            if (shield_button_pressed) {
+                outputs.leftStickX = 128 + (directions.x * 60);
+                outputs.leftStickY = 128 + (directions.y * 35);
             }
 
-            if (inputs.rf5) {
+            // MX Firefox angles
+            if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 96);
                 outputs.leftStickY = 128 + (directions.y * 28);
             }
@@ -150,15 +151,11 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
             // Shield drop
             if (shield_button_pressed && directions.y == -1) {
-                outputs.leftStickX = 128 + (directions.x * 38);
+                outputs.leftStickX = 128 + (directions.x * 33);
                 outputs.leftStickY = 128 + (directions.y * 53);
             }
 
-            if (inputs.rf5) {
-                outputs.leftStickX = 128 + (directions.x * 51);
-                outputs.leftStickY = 128 + (directions.y * 82);
-            }
-
+            // MY Firefox angles
             if (inputs.rf1) {
                 outputs.leftStickX = 128 + (directions.x * 28);
                 outputs.leftStickY = 128 + (directions.y * 96);
