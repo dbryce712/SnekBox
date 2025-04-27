@@ -219,7 +219,7 @@
     },
     {
       "backendId": "COMMS_BACKEND_GAMECUBE",
-      "defaultModeConfig": 1
+      "defaultModeConfig": 2
     },
     {
       "backendId": "COMMS_BACKEND_N64",

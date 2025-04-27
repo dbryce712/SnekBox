@@ -121,7 +121,7 @@ const Config default_config = {
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_GAMECUBE,
-            .default_mode_config = 1,
+            .default_mode_config = 2,
         },
         CommunicationBackendConfig {
             .backend_id = COMMS_BACKEND_N64,
