@@ -1,8 +1,8 @@
 #include "modes/RivalsOfAether.hpp"
 
-#define ANALOG_STICK_MIN 28
+#define ANALOG_STICK_MIN 1
 #define ANALOG_STICK_NEUTRAL 128
-#define ANALOG_STICK_MAX 228
+#define ANALOG_STICK_MAX 254
 
 RivalsOfAether::RivalsOfAether() : ControllerMode() {}
 
@@ -80,7 +80,7 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
         /* Extra DI, Air Dodge, and Up B angles */
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 59);
-            outputs.leftStickY = 128 + (directions.y * 23);
+            outputs.leftStickY = 128 + (directions.y * 24);
 
             // Angled F-tilts
             if (inputs.rt1) {
