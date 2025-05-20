@@ -27,7 +27,7 @@ void RivalsOfAether::UpdateDigitalOutputs(const InputState &inputs, OutputState 
     outputs.home = inputs.mb2;
     outputs.buttonL = inputs.rf7;
     outputs.leftStickClick = inputs.lf5;
-    outputs.rightStickClick = inputs.rf8;
+    outputs.rightStickClick = inputs.lt1;
 
     // Activate D-Pad layer by holding Mod X + Mod Y.
     if (inputs.lt1 && inputs.lt2) {
@@ -65,7 +65,7 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
     // 48 total DI angles, 24 total Up b angles, 16 total airdodge angles
 
     if (inputs.lt1) {
-        if (directions.horizontal) {
+        /* if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 76);
             // MX Horizontal Tilts
             if (inputs.rt1) {
@@ -75,18 +75,20 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
 
         if(directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 73);
-        }
+        } */
 
-        /* Extra DI, Air Dodge, and Up B angles */
+        // Extra DI, Air Dodge, and Up B angles
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 59);
-            outputs.leftStickY = 128 + (directions.y * 24);
+            /* if (shield_button_pressed) {
+                outputs.leftStickX = 128 + (directions.x * 59);
+                outputs.leftStickY = 128 + (directions.y * 24);
+            }
 
             // Angled F-tilts
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 69);
                 outputs.leftStickY = 128 + (directions.y * 53);
-            }
+            } */
 
             // Angles just for DI and Up B
             if (inputs.rf1) {
@@ -125,7 +127,7 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
             outputs.leftStickY = 128 + (directions.y * 78);
         }
 
-        /* Extra DI, Air Dodge, and Up B angles */
+        // Extra DI, Air Dodge, and Up B angles
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 41);
             outputs.leftStickY = 128 + (directions.y * 76);

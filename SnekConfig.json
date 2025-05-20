@@ -284,6 +284,12 @@
           "socdType": "SOCD_NEUTRAL"
         }
       ],
+      "buttonRemapping": [
+        {
+          "physicalButton": "BTN_RF8",
+          "activates": "BTN_LF5"
+        }
+      ],
       "activationBinding": [
         "BTN_LT1",
         "BTN_MB1",

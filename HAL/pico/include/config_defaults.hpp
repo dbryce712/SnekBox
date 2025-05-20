@@ -131,7 +131,10 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_NEUTRAL },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_NEUTRAL },
             },
-            .button_remapping_count = 0,
+            .button_remapping_count = 1,
+            .button_remapping = {
+                ButtonRemap { .physical_button = BTN_RF8, .activates = BTN_LF5 },
+            },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF1 },
         },
