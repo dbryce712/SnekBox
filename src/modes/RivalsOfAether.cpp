@@ -26,8 +26,8 @@ void RivalsOfAether::UpdateDigitalOutputs(const InputState &inputs, OutputState 
     outputs.select = inputs.mb3;
     outputs.home = inputs.mb2;
     outputs.buttonL = inputs.rf7;
-    outputs.leftStickClick = inputs.lf5;
-    outputs.rightStickClick = inputs.lt1;
+    outputs.leftStickClick = inputs.lf5 || inputs.rf8;
+    outputs.rightStickClick = inputs.lt1 || inputs.lt2;
 
     // Activate D-Pad layer by holding Mod X + Mod Y.
     if (inputs.lt1 && inputs.lt2) {
@@ -79,12 +79,12 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
 
         // Extra DI, Air Dodge, and Up B angles
         if (directions.diagonal) {
-            /* if (shield_button_pressed) {
-                outputs.leftStickX = 128 + (directions.x * 59);
-                outputs.leftStickY = 128 + (directions.y * 24);
+            if (shield_button_pressed) {
+                outputs.leftStickX = 128 + (directions.x * 90);
+                outputs.leftStickY = 128 + (directions.y * 42);
             }
 
-            // Angled F-tilts
+            /* // Angled F-tilts
             if (inputs.rt1) {
                 outputs.leftStickX = 128 + (directions.x * 69);
                 outputs.leftStickY = 128 + (directions.y * 53);
@@ -123,14 +123,15 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
             outputs.leftStickX = 128 + (directions.x * 41);
         }
 
-        if(directions.vertical) {
+        /* if(directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 78);
-        }
+        } */
 
         // Extra DI, Air Dodge, and Up B angles
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 41);
             outputs.leftStickY = 128 + (directions.y * 76);
+
 
             // Angles just for DI and Up B
             if (inputs.rf1) {
