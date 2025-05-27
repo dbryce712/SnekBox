@@ -400,92 +400,44 @@
     {
       "buttonsToKeycodes": [
         {
-          "button": "BTN_LF4",
-          "keycode": 4
+          "button": "BTN_RT2",
+          "keycode": 225
         },
         {
           "button": "BTN_LF3",
-          "keycode": 5
+          "keycode": 80
         },
         {
           "button": "BTN_LF2",
-          "keycode": 6
+          "keycode": 81
         },
         {
           "button": "BTN_LF1",
-          "keycode": 7
+          "keycode": 79
         },
         {
-          "button": "BTN_LT1",
-          "keycode": 8
-        },
-        {
-          "button": "BTN_LT2",
-          "keycode": 9
-        },
-        {
-          "button": "BTN_MB3",
-          "keycode": 10
+          "button": "BTN_LF5",
+          "keycode": 82
         },
         {
           "button": "BTN_MB1",
-          "keycode": 11
+          "keycode": 40
         },
         {
-          "button": "BTN_MB2",
-          "keycode": 12
-        },
-        {
-          "button": "BTN_RF5",
-          "keycode": 13
-        },
-        {
-          "button": "BTN_RF6",
-          "keycode": 14
-        },
-        {
-          "button": "BTN_RF7",
-          "keycode": 15
-        },
-        {
-          "button": "BTN_RF8",
-          "keycode": 16
+          "button": "BTN_LT1",
+          "keycode": 44
         },
         {
           "button": "BTN_RF1",
-          "keycode": 17
-        },
-        {
-          "button": "BTN_RF2",
-          "keycode": 18
-        },
-        {
-          "button": "BTN_RF3",
-          "keycode": 19
-        },
-        {
-          "button": "BTN_RF4",
-          "keycode": 20
-        },
-        {
-          "button": "BTN_RT4",
-          "keycode": 21
-        },
-        {
-          "button": "BTN_RT3",
-          "keycode": 22
-        },
-        {
-          "button": "BTN_RT5",
-          "keycode": 23
+          "keycode": 27
         },
         {
           "button": "BTN_RT1",
-          "keycode": 24
+          "keycode": 29
         },
         {
-          "button": "BTN_RT2",
-          "keycode": 25
+          "button": "BTN_RF3",
+          "keycode": 6
         }
       ]
     }
