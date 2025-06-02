@@ -26,7 +26,7 @@ void RivalsOfAether::UpdateDigitalOutputs(const InputState &inputs, OutputState 
     outputs.select = inputs.mb3;
     outputs.home = inputs.mb2;
     outputs.buttonL = inputs.rf7;
-    outputs.leftStickClick = inputs.lf5 || inputs.rf8;
+    outputs.leftStickClick = inputs.rf8;
     outputs.rightStickClick = inputs.lt1 || inputs.lt2;
 
     // Activate D-Pad layer by holding Mod X + Mod Y.
