@@ -1,8 +1,8 @@
 #include "modes/RivalsOfAether.hpp"
 
-#define ANALOG_STICK_MIN 1
+#define ANALOG_STICK_MIN 0
 #define ANALOG_STICK_NEUTRAL 128
-#define ANALOG_STICK_MAX 254
+#define ANALOG_STICK_MAX 255
 
 RivalsOfAether::RivalsOfAether() : ControllerMode() {}
 
@@ -62,7 +62,19 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
 
     bool shield_button_pressed = inputs.lf4 || inputs.rf5;
 
-    // 48 total DI angles, 24 total Up b angles, 16 total airdodge angles
+    // added this conditional to give joystick accurate diagonals rather than (+/- 1.2, 1.2) should be (0.87~, 0.87~)
+    if (directions.diagonal && !shield_button_pressed) {
+        // 92 (0.78 in-game), reduced below 0.8 to allow crouch tilts/crouch turn-around tilts
+        outputs.leftStickX = 128 + (directions.x * 92);
+        // Y value 0.83. >0.8 allows fast fall
+        outputs.leftStickY = 128 + (directions.y * 96);
+    }
+
+    if (directions.diagonal && shield_button_pressed) {
+        // (0.77~, 0.77~) to prevent spot dodging when pressing diagonal on the ground
+        outputs.leftStickX = 128 + (directions.x * 92);
+        outputs.leftStickY = 128 + (directions.y * 92);
+    }
 
     if (inputs.lt1) {
         /* if (directions.horizontal) {
