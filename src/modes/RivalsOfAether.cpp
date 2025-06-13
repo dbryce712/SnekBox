@@ -62,16 +62,16 @@ void RivalsOfAether::UpdateAnalogOutputs(const InputState &inputs, OutputState &
 
     bool shield_button_pressed = inputs.lf4 || inputs.rf5;
 
-    // added this conditional to give joystick accurate diagonals rather than (+/- 1.2, 1.2) should be (0.87~, 0.87~)
+    // Joystick accurate diagonals [joystick outputs (0.87~, 0.87~) rather than (+/- 1.2, 1.2)]
     if (directions.diagonal && !shield_button_pressed) {
-        // 92 (0.78 in-game), reduced below 0.8 to allow crouch tilts/crouch turn-around tilts
+        // X = 92 (0.78 in-game); [x < 0.8] allows crouch tilts/crouch turn-around tilts
         outputs.leftStickX = 128 + (directions.x * 92);
-        // Y value 0.83. >0.8 allows fast fall
+        // Y = 96 (0.83 in-game); [y > 0.8] allows fast fall
         outputs.leftStickY = 128 + (directions.y * 96);
     }
 
     if (directions.diagonal && shield_button_pressed) {
-        // (0.77~, 0.77~) to prevent spot dodging when pressing diagonal on the ground
+        // (0.77~, 0.77~) to prevent spot dodging when inputting lower 45° notch while grounded
         outputs.leftStickX = 128 + (directions.x * 92);
         outputs.leftStickY = 128 + (directions.y * 92);
     }
