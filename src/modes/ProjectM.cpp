@@ -53,7 +53,8 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     if (inputs.mb2)
         outputs.dpadRight = true;
 
-    if (inputs.lt3) {
+    // Replace Y with X if Up is held
+    if (inputs.lt2) {
         outputs.y = false;
         outputs.x = inputs.rf2;
     }
@@ -62,9 +63,6 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     outputs.leftStickClick = inputs.lf6;
     outputs.rightStickClick = inputs.lf7;
     outputs.capture = inputs.lf8;
-    outputs.dpadDown = inputs.lf10;
-    outputs.dpadLeft = inputs.lf11;
-    outputs.dpadRight = inputs.lf12;
     outputs.select = inputs.mb2;
     outputs.home = inputs.mb3;
 }
@@ -179,9 +177,11 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickY = 128 + (directions.y * 58);
 
             // Diagonal shield drop, wavedash
-            if (shield_button_pressed && directions.y == -1) {
-                outputs.leftStickX = 128 + (directions.x * 45);
-                outputs.leftStickY = 128 + (directions.y * 72);
+            if (shield_button_pressed/*  && directions.y == -1 */) {
+                // outputs.leftStickX = 128 + (directions.x * 45);
+                // outputs.leftStickY = 128 + (directions.y * 72);
+                outputs.leftStickX = 128 + (directions.x * 120);
+                outputs.leftStickY = 128 + (directions.y * 84);
             }
 
             // MY Firefox angles
@@ -209,14 +209,6 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
                 outputs.leftStickX = 128 + (directions.x * 76);
                 outputs.leftStickY = 128 + (directions.y * 93);
             }
-        }
-    }
-
-    // snekdash modifier
-    if (inputs.lt3) {
-        if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 120);
-            outputs.leftStickY = 128 + (directions.y * 84);
         }
     }
 

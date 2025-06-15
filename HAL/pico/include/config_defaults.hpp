@@ -31,8 +31,9 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP },
             },
-            .button_remapping_count = 4,
+            .button_remapping_count = 5,
             .button_remapping = {
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RF4 }, // WASD Up
                 ButtonRemap { .physical_button = BTN_RF6, .activates = BTN_RF4 }, // Up instead of Y
                 ButtonRemap { .physical_button = BTN_RF7, .activates = BTN_RT2 }, // C-Down instead of lightshield
                 ButtonRemap { .physical_button = BTN_RF3, .activates = BTN_RF5 }, // Z activates R
@@ -50,8 +51,9 @@ const Config default_config = {
                 SocdPair { .button_dir1 = BTN_RT3, .button_dir2 = BTN_RT5, .socd_type = SOCD_2IP },
                 SocdPair { .button_dir1 = BTN_RT2, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP },
             },
-            .button_remapping_count = 5,
+            .button_remapping_count = 6,
             .button_remapping = {
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RF4 }, // WASD Up
                 ButtonRemap { .physical_button = BTN_RF6, .activates = BTN_RF4 }, // Up instead of Y
                 ButtonRemap { .physical_button = BTN_RF7, .activates = BTN_RT2 }, // C-Down instead of lightshield
                 ButtonRemap { .physical_button = BTN_RF3, .activates = BTN_RF5 }, // Z activates R
@@ -113,18 +115,6 @@ const Config default_config = {
             .button_remapping_count = 0,
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF5 }, // ModX + Start + R
-        },
-        GameModeConfig {
-            .mode_id = MODE_KEYBOARD,
-            .socd_pairs_count = 2,
-            .socd_pairs = {
-                SocdPair { .button_dir1 = BTN_LF3, .button_dir2 = BTN_LF1, .socd_type = SOCD_2IP },
-                SocdPair { .button_dir1 = BTN_LT1, .button_dir2 = BTN_RT4, .socd_type = SOCD_2IP },
-            },
-            .button_remapping_count = 0,
-            .activation_binding_count = 3,
-            .activation_binding = { BTN_LT2, BTN_MB1, BTN_LF4 },
-            .keyboard_mode_config = 1,
         },
     },
     .communication_backend_configs_count = 8,

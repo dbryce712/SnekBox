@@ -56,6 +56,10 @@
       ],
       "buttonRemapping": [
         {
+          "physicalButton": "BTN_LF5",
+          "activates": "BTN_RF4"
+        },
+        {
           "physicalButton": "BTN_RF6",
           "activates": "BTN_RF4"
         },
@@ -103,6 +107,10 @@
         }
       ],
       "buttonRemapping": [
+        {
+          "physicalButton": "BTN_LF5",
+          "activates": "BTN_RF4"
+        },
         {
           "physicalButton": "BTN_RF6",
           "activates": "BTN_RF4"
