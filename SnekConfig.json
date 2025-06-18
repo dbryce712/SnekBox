@@ -223,13 +223,8 @@
           "socdType": "SOCD_NEUTRAL"
         },
         {
-          "buttonDir1": "BTN_LT1",
-          "buttonDir2": "BTN_RT4",
-          "socdType": "SOCD_DIR1_PRIORITY"
-        },
-        {
           "buttonDir1": "BTN_LF2",
-          "buttonDir2": "BTN_LT1",
+          "buttonDir2": "BTN_RF4",
           "socdType": "SOCD_NEUTRAL"
         },
         {
@@ -241,23 +236,18 @@
           "buttonDir1": "BTN_RT2",
           "buttonDir2": "BTN_RT4",
           "socdType": "SOCD_NEUTRAL"
-        },
-        {
-          "buttonDir1": "BTN_LF2",
-          "buttonDir2": "BTN_RT4",
-          "socdType": "SOCD_NEUTRAL"
         }
       ],
       "buttonRemapping": [
         {
           "physicalButton": "BTN_LF5",
-          "activates": "BTN_LT1"
+          "activates": "BTN_RF4"
         }
       ],
       "activationBinding": [
         "BTN_LT1",
         "BTN_MB1",
-        "BTN_LF1"
+        "BTN_LF5"
       ]
     },
     {
@@ -333,7 +323,7 @@
       ]
     },
     {
-      "modeId": "MODE_KEYBOARD",
+      "modeId": "MODE_CUSTOM",
       "socdPairs": [
         {
           "buttonDir1": "BTN_LF3",
@@ -341,17 +331,27 @@
           "socdType": "SOCD_NEUTRAL"
         },
         {
-          "buttonDir1": "BTN_LT1",
-          "buttonDir2": "BTN_RT4",
+          "buttonDir1": "BTN_LF2",
+          "buttonDir2": "BTN_LT1",
           "socdType": "SOCD_NEUTRAL"
         }
       ],
-      "activationBinding": [
-        "BTN_LT2",
-        "BTN_MB1",
-        "BTN_LF4"
+      "buttonRemapping": [
+        {
+          "physicalButton": "BTN_RT4",
+          "activates": "BTN_LT1"
+        },
+        {
+          "physicalButton": "BTN_LF5",
+          "activates": "BTN_LT1"
+        }
       ],
-      "keyboardModeConfig": 1
+      "activationBinding": [
+        "BTN_LT1",
+        "BTN_MB1",
+        "BTN_LF1"
+      ],
+      "customModeConfig": 1
     }
   ],
   "communicationBackendConfigs": [
@@ -402,48 +402,38 @@
       ]
     }
   ],
-  "keyboardModes": [
+  "customModes": [
     {
-      "buttonsToKeycodes": [
+      "digitalButtonMappings": [
+        "BTN_RF1",
+        "BTN_RF2",
+        "BTN_RF5",
+        "BTN_RF6",
+        "BTN_RF8",
+        "BTN_RF7",
+        "BTN_RF4",
+        "BTN_RF3",
+        "BTN_MB1",
+        "BTN_RT3",
+        "BTN_RT1",
+        "BTN_RT5",
+        "BTN_LT1",
+        "BTN_LF2",
+        "BTN_LF3",
+        "BTN_LF1",
+        "BTN_LT2",
+        "BTN_RT2"
+      ],
+      "analogTriggerMappings": [
         {
-          "button": "BTN_RT2",
-          "keycode": 225
-        },
-        {
-          "button": "BTN_LF3",
-          "keycode": 80
-        },
-        {
-          "button": "BTN_LF2",
-          "keycode": 81
-        },
-        {
-          "button": "BTN_LF1",
-          "keycode": 79
-        },
-        {
-          "button": "BTN_LF5",
-          "keycode": 82
-        },
-        {
-          "button": "BTN_MB1",
-          "keycode": 40
-        },
-        {
-          "button": "BTN_LT1",
-          "keycode": 44
-        },
-        {
-          "button": "BTN_RF1",
-          "keycode": 27
-        },
-        {
-          "button": "BTN_RT1",
-          "keycode": 29
+          "button": "BTN_RF4",
+          "trigger": "TRIGGER_LT",
+          "value": 255
         },
         {
           "button": "BTN_RF3",
-          "keycode": 6
+          "trigger": "TRIGGER_RT",
+          "value": 255
         }
       ]
     }
