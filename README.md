@@ -9,7 +9,7 @@ Changes:
 - Made ProjectM mode default (true Z press = true)
   - Added snekdash angles (use mod X + L)
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
-  - Left/Right + Down always inputs down special
+  - 45° notch + B outputs vertical special when grounded
   - Mod X crouching (useful on platforms)
   - True maximum length wavedashes (Mod X)
   - Project M Bidou mode
@@ -26,21 +26,21 @@ Changes:
   - Set RF8 button to D-Pad Up for footstools
   - Changed select/home buttons to activate when Mod X + Start/Mod Y + Start is pressed, respectively
   - Changed Mod X C-stick angling to enable angled C-stick forward tilts
-  - Left/Right + Down always inputs down special
-  - Mod X crouching (useful on platforms) 
+  - 45° notch + B outputs vertical special when grounded
+  - Mod X crouching (useful on platforms)
   - Added buffered turnaround vertical tilts (Mod Y)
-- Rivals of Aether mode overhauled for Rivals of Aether II
-- Buffed Melee mode (replaces Austin's Rivals2 mode); Mod X + Start + R to activate
+- Rivals of Aether mode edits
+- Rivals 2 mode optimized for Ranno
+- Buffed Melee mode (Mod X + Start + LF5) to activate
   - Added Mod Y + Down shield drops
   - Light shield pinpoints 43 instead of 49
   - Parasol dash angle (airdodge diagonally upwards while holding X or Y)
-  - Changed Mod X and Mod Y wavedash angles to longest and shortest, respectively
+  - Mod X outputs longest wavedash angle
   - Changed slideoff DI C-stick diagonal angles to the most optimal ones
   - Added buffered turnaround vertical tilts (Mod Y)
   - Added slight-angled forward tilt/smash angles (Mod X + Mod Y)
   - Removed turnaround neutral B nerf
   - Pikachu double up-B angle (Mod X + Mod Y + Up)
-- FGC mode overhaul (credit to Skywalker1127)
 
 ## Original ReadMe below:
 

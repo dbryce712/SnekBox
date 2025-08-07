@@ -1,3 +1,4 @@
+// Replaced with Buffed Melee mode
 #include "modes/FgcMode.hpp"
 
 #define ANALOG_STICK_MIN 48
