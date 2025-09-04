@@ -78,7 +78,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
     if (inputs.lt1) {
         if (directions.horizontal) {
-            outputs.leftStickX = 128 + (directions.x * 49);
+            outputs.leftStickX = 128 + (directions.x * 50);
         }
         if (directions.vertical) {
             outputs.leftStickY = 128 + (directions.y * 49);
@@ -91,7 +91,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 49);
-            outputs.leftStickY = 128 + (directions.y * 32);
+            outputs.leftStickY = 128 + (directions.y * 35);
 
             // Angled tilts
             if (inputs.rt1) {
@@ -141,7 +141,7 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         }
 
         if (directions.diagonal) {
-            outputs.leftStickX = 128 + (directions.x * 38);
+            outputs.leftStickX = 128 + (directions.x * 35);
             outputs.leftStickY = 128 + (directions.y * 49);
 
             // Shield drop
