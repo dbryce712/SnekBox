@@ -344,6 +344,10 @@
         {
           "physicalButton": "BTN_LF5",
           "activates": "BTN_LT1"
+        },
+        {
+          "physicalButton": "BTN_LF4",
+          "activates": "BTN_LT2"
         }
       ],
       "activationBinding": [
