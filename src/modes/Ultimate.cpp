@@ -68,8 +68,8 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
 
     bool shield_button_pressed = inputs.lf4 || inputs.rf5 || inputs.rf7;
 
-    if (directions.diagonal) {
-        // 45° notch + B outputs vertical special when grounded
+    if (directions.diagonal && directions.y == -1) {
+        // Lower 45° notch + B outputs down special when grounded
         if (inputs.rf1) {
             outputs.leftStickX = 128 + (directions.x * 28);
             outputs.leftStickY = 128 + (directions.y * 85);
