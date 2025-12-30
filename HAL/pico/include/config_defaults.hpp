@@ -49,7 +49,7 @@ const Config default_config = {
             },
             .button_remapping_count = 1,
             .button_remapping = {
-                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RF4 }, // LF5 activates Up
+                ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_RT1 }, // LF5 activates A
             },
             .activation_binding_count = 3,
             .activation_binding = { BTN_LT1, BTN_MB1, BTN_LF2 },
