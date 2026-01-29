@@ -46,12 +46,12 @@ void ProjectM::UpdateDigitalOutputs(const InputState &inputs, OutputState &outpu
     }
 
     // Don't override dpad if it's already pressed using the D-Pad layer.
-    outputs.dpadUp = outputs.dpadUp || inputs.rf8;
+    outputs.dpadUp = outputs.dpadUp || inputs.rf7;
     outputs.dpadDown = outputs.dpadDown || inputs.rf16;
 
     // D-Pad Neutral SOCD
     if ((inputs.lt1 && inputs.lt2) || inputs.nunchuk_c || inputs.lf14) {
-        if ((inputs.rt2 && inputs.rf8) || (inputs.rt4 && inputs.rf16)) {
+        if ((inputs.rt2 && inputs.rf7) || (inputs.rt4 && inputs.rf16)) {
             outputs.dpadUp = false;
             outputs.dpadDown = false;
         }
@@ -80,7 +80,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs
     );
 
-    bool shield_button_pressed = inputs.lf4 || inputs.rf5 || inputs.rf7;
+    bool shield_button_pressed = inputs.lf4 || inputs.rf5 || inputs.rf8;
 
     if (directions.diagonal) {
         // Up smash without letting go of forward
@@ -234,7 +234,7 @@ void ProjectM::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
         outputs.leftStickX = 128 + (directions.x * 100);
     }
 
-    if (inputs.rf7) {
+    if (inputs.rf8) {
         outputs.triggerRAnalog = 49;
     }
 
