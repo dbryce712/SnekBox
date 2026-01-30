@@ -84,7 +84,7 @@ const Config default_config = {
                 ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF15 }, // LF5 activates C45
             },
             .activation_binding_count = 3,
-            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF7 },
+            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF8 },
         },
         GameModeConfig {
             .mode_id = MODE_PROJECT_M,
@@ -98,10 +98,10 @@ const Config default_config = {
             .button_remapping_count = 2,
             .button_remapping = {
                 ButtonRemap { .physical_button = BTN_LF5, .activates = BTN_LF14 }, // LF5 activates DP*
-                ButtonRemap { .physical_button = BTN_RF8, .activates = BTN_RF16 }, // D-Pad Down instead of D-Pad Up
+                ButtonRemap { .physical_button = BTN_RF7, .activates = BTN_RF16 }, // D-Pad Down instead of D-Pad Up
             },
             .activation_binding_count = 3,
-            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF8 },
+            .activation_binding = { BTN_LT1, BTN_MB1, BTN_RF7 },
         },
         GameModeConfig {
             .mode_id = MODE_FGC,

@@ -171,7 +171,7 @@
       "activationBinding": [
         "BTN_LT1",
         "BTN_MB1",
-        "BTN_RF7"
+        "BTN_RF8"
       ]
     },
     {
@@ -204,14 +204,14 @@
           "activates": "BTN_LF14"
         },
         {
-          "physicalButton": "BTN_RF8",
+          "physicalButton": "BTN_RF7",
           "activates": "BTN_RF16"
         }
       ],
       "activationBinding": [
         "BTN_LT1",
         "BTN_MB1",
-        "BTN_RF8"
+        "BTN_RF7"
       ]
     },
     {
