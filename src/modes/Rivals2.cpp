@@ -142,7 +142,7 @@ void Rivals2::UpdateAnalogOutputs(const InputState &inputs, OutputState &outputs
         // Extra DI, Air Dodge, and Up B angles
         if (directions.diagonal) {
             outputs.leftStickX = 128 + (directions.x * 41);
-            outputs.leftStickY = 128 + (directions.y * 76);
+            outputs.leftStickY = 128 + (directions.y * 97);
 
 
             // Angles just for DI and Up B
