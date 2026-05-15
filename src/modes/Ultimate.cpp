@@ -144,9 +144,9 @@ void Ultimate::UpdateAnalogOutputs(const InputState &inputs, OutputState &output
             outputs.leftStickX = 128 + (directions.x * 35);
             outputs.leftStickY = 128 + (directions.y * 49);
 
-            // Shield drop
+            // Shield drop, Marth 1/2 "babydash" micro wavedash
             if (shield_button_pressed && directions.y == -1) {
-                outputs.leftStickX = 128 + (directions.x * 36);
+                outputs.leftStickX = 128 + (directions.x * 29);
                 outputs.leftStickY = 128 + (directions.y * 53);
             }
 
